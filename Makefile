@@ -1,5 +1,6 @@
-src=src
-bin=bin
+#src=src for main project. Nice to make in src folder while developing
+src=.
+bin=../bin
 
 main: $(src)/*.cpp $(src)/*.h 
 	g++ $(src)/main.cpp -o $(bin)/main -Wall
