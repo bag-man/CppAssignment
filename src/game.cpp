@@ -1,21 +1,14 @@
-#include <iostream>
-#include <string>
 #include "game.h"
 
-using namespace std;
+//Board board1, board2;
+//int generation, width, height;
 
 int main() {
 
-  string position = "\033[42m \033[m";
-
-  for(int i = 0; i < 10; i++) {
-    cout << "\n";
-    for(int i = 0; i < 10; i++) {
-      cout << "   ";
-      cout << position;
-    }
-    cout << "\n";
-  }
+  Board *board1 = new Board(10, 10);
+  board1->printBoard();
 
   return 0;
 }
+
+void update();

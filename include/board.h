@@ -9,9 +9,10 @@ class Board {
     int height;
 
   public:
-    Board(int width, int height);
+    Board(int w, int h);
     Board * update();
     Cell * getNextGenCell();
+    void printBoard();
 };
 
 #endif
