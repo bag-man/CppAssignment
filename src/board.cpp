@@ -14,6 +14,10 @@ Board::Board(int w, int h) {
 
 }
 
+void Board::addCell(int x, int y) {
+
+}
+
 void Board::printBoard() {
   string aphid = "\033[42m \033[m";
   string ladybird = "\033[41m \033[m";

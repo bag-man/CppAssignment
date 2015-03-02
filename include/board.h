@@ -12,6 +12,7 @@ class Board {
     Board(int w, int h);
     Board * update();
     Cell * getNextGenCell();
+    void addCell(int x, int y);
     void printBoard();
 };
 

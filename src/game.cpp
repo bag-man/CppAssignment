@@ -10,21 +10,38 @@ using namespace std;
 
 int main() {
 
-  loadFiles();
-  Board *board1 = new Board(10, 10);
+  init();
   board1->printBoard();
 
   return 0;
 }
 
-bool loadFiles() {
+bool init() {
 
-  string line;
+  string word;
   ifstream simulation ("../configs/simulation.conf");
   if(simulation.is_open()) {
-    while(getline(simulation, line)) {
-      cout << line << '\n';
+    int aphids, ladybirds;
+    simulation >> width;
+    simulation >> height;
+    board1 = new Board(width, height);
+
+    simulation >> aphids;
+    for(int i = 0; i < aphids; i++) {
+      int x, y; 
+      simulation >> x;
+      simulation >> y;
+      cout << "Create cell here\n";
     }
+
+    simulation >> ladybirds;
+    for(int i = 0; i < ladybirds; i++) {
+      int x, y; 
+      simulation >> x;
+      simulation >> y;
+      cout << "Create cell here\n";
+    }
+
     simulation.close();
   } else cout << "Simulation config not found.\n"; 
 
