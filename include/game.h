@@ -2,34 +2,31 @@
 #define GAME_H
 #include "board.h"
 
-class Game {
-  private: 
+/*
+// Store next and current generation 
+Board board1;
+Board board2;
 
-    /* Store next and current generation */
-    Board board1;
-    Board board2;
+// Number of updates 
+int generation;
 
-    /* Number of updates */
-    int generation;
+// Board dimensions 
+int width;
+int height;
+*/
 
-    /* Board dimensions */
-    int width;
-    int height;
+/* Update the game, new generation */
+void update();
 
-    /* Update the game, new generation */
-    void update();
+/* Run when the game ends */
+void quit();
 
-    /* Run when the game ends */
-    void quit();
+/* Read in the configuration files */
+bool loadFiles();
 
-    /* Read in the configuration files */
-    bool loadFiles();
+/* initialise the game / create the board */
+bool init();
 
-    /* initialise the game / create the board */
-    bool init();
-    
-  public:
-    int main();
-};
+int main();
 
 #endif

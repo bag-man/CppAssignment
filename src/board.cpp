@@ -4,8 +4,8 @@
 
 using namespace std;
 
-Cell * cells; // 2d array
-int width, height;
+//Cell * cells; // 2d array
+//int width, height;
 
 Board::Board(int w, int h) {
 
