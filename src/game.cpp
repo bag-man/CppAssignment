@@ -4,7 +4,7 @@
 #include "game.h"
 
 Board *board1, *board2;
-int generation, width, height;
+int generation;
 
 using namespace std;
 
@@ -18,6 +18,7 @@ int main() {
 
 bool init() {
 
+  int width, height;
   string word;
   ifstream simulation ("../configs/simulation.conf");
   if(simulation.is_open()) {

@@ -4,15 +4,15 @@
 
 class Board {
   private: 
-    Cell * cells; // 2d Array
+    /*Cell ** cells; // 2d Array
     int width;
-    int height;
+    int height;*/
 
   public:
     Board(int w, int h);
     Board * update();
     Cell * getNextGenCell();
-    void addCell(int x, int y);
+    Cell * getCell(int x, int y);
     void printBoard();
 };
 
