@@ -7,12 +7,16 @@
 
 class Cell {
   private: 
-    std::list<Aphid> aphids;
-    std::list<Ladybird> ladybirds;
+    std::list<Aphid *> aphids;
+    std::list<Ladybird *> ladybirds;
 
   public:
-    Cell(int aphidCount, int ladybirdCount);
+    Cell();
     void update(Cell * cell, Board * board);
+    void addAphid();
+    void addLadybird();
+    int ladybirdCount();
+    int aphidCount();
 };
 
 #endif

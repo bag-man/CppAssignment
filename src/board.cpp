@@ -17,28 +17,37 @@ Board::Board(int w, int h) {
   for (int i = 0; i < w; i++){
     cells[i] = (Cell **) malloc(h* sizeof(Cell *));
     for (int j = 0; j < h; j++){
-      cells[i][j] = new Cell(0,0);
+      cells[i][j] = new Cell();
     }
   }
 
 }
 
-Cell * getCell(int x, int y) {
+Cell * Board::getCell(int x, int y) {
 
   return cells[x][y];
 
 }
 
 void Board::printBoard() {
-  string aphid = "\033[42m \033[m";
-  string ladybird = "\033[41m \033[m";
+  string aphid = "\e[0;30m\033[42m";
+  string ladybird = "\e[0;30m\033[41m";
+  string end = "\033[m";
 
   for(int i = 0; i < width; i++) {
     cout << "\n";
-    for(int i = 0; i < height; i++) {
+    for(int j = 0; j < height; j++) {
       cout << "  ";
-      cout << aphid;
-      cout << ladybird;
+      if(cells[i][j]->aphidCount())
+        cout << aphid << cells[i][j]->aphidCount() << end;
+      else
+        cout << aphid << " " << end;
+
+      if(cells[i][j]->ladybirdCount())
+        cout << ladybird << cells[i][j]->ladybirdCount() << end;
+      else
+        cout << ladybird << " " << end;
+
     }
     cout << "\n";
   }

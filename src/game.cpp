@@ -30,17 +30,15 @@ bool init() {
     simulation >> aphids;
     for(int i = 0; i < aphids; i++) {
       int x, y; 
-      simulation >> x;
-      simulation >> y;
-      cout << "Create cell here\n";
+      simulation >> x >> y;
+      board1->getCell(x,y)->addAphid();
     }
 
     simulation >> ladybirds;
     for(int i = 0; i < ladybirds; i++) {
       int x, y; 
-      simulation >> x;
-      simulation >> y;
-      cout << "Create cell here\n";
+      simulation >> x >> y;
+      board1->getCell(x,y)->addLadybird();
     }
 
     simulation.close();
