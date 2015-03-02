@@ -1,11 +1,16 @@
 #include "cell.h"
+#include <iostream>
 
 using namespace std;
 
 list<Aphid *> aphids;
 list<Ladybird *> ladybirds;
+int posX, posY;
 
-Cell::Cell() {
+Cell::Cell(int x, int y) {
+
+  posX = x;
+  posY = y;
 
 }
 
@@ -22,7 +27,16 @@ int Cell::aphidCount() {
 }
 
 int Cell::ladybirdCount() {
-  return aphids.size();
+  return ladybirds.size();
+}
+
+pair<int, int> Cell::getXY() {
+  /*
+  pair<int, int> location = board1->getCell(x,y)->getXY();
+  cout << x << " " << y << "\n";
+  cout << location.first << " " << location.second << "\n";
+  */
+  return make_pair(posX, posY);
 }
 
 void Cell::update(Cell * cell, Board * board) {

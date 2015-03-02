@@ -16,8 +16,12 @@ Board::Board(int w, int h) {
   cells = (Cell ***) malloc(w* sizeof(Cell *));
   for (int i = 0; i < w; i++){
     cells[i] = (Cell **) malloc(h* sizeof(Cell *));
+  }
+
+
+  for (int i = 0; i < w; i++){
     for (int j = 0; j < h; j++){
-      cells[i][j] = new Cell();
+      cells[i][j] = new Cell(i, j);
     }
   }
 

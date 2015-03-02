@@ -23,8 +23,7 @@ bool init() {
   ifstream simulation ("../configs/simulation.conf");
   if(simulation.is_open()) {
     int aphids, ladybirds;
-    simulation >> width;
-    simulation >> height;
+    simulation >> width >> height;
     board1 = new Board(width, height);
 
     simulation >> aphids;
@@ -36,7 +35,7 @@ bool init() {
 
     simulation >> ladybirds;
     for(int i = 0; i < ladybirds; i++) {
-      int x, y; 
+      int x, y;
       simulation >> x >> y;
       board1->getCell(x,y)->addLadybird();
     }
