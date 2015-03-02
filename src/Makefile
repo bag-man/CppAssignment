@@ -9,6 +9,5 @@ clean:
 	rm $(bin)/*
 
 test: $(bin)/main
-	clear
 	g++ $(src)/*.cpp -o $(bin)/main -Wall -I $(inc) -std=c++11
 	./$(bin)/main

@@ -43,6 +43,23 @@ bool init() {
     simulation.close();
   } else cout << "Simulation config not found.\n"; 
 
+  ifstream aphids ("../configs/aphids.conf");
+  if(aphids.is_open()) {
+    float X,Y,Z,A;
+    aphids >> X >> Y >> Z >> A;
+    Aphid::movementProb = X;
+    Aphid::groupAttackModifier = Y;
+    Aphid::killProb = Z;
+    Aphid::mateProb = A;
+  } else cout << "Aphid config not found.\n"; 
+
+  ifstream ladybirds ("../configs/ladybirds.conf");
+  if(ladybirds.is_open()) {
+
+  } else cout << "Ladybird config not found.\n"; 
+
+  cout << Aphid::movementProb;
+
   return true;
 
 }
