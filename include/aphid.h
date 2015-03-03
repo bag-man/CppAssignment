@@ -3,7 +3,6 @@
 #include "creature.h"
 #include "direction.h"
 
-
 class Aphid : public Creature {
 
   private: 

@@ -2,6 +2,8 @@
 #include <fstream>
 #include <iostream>
 #include "game.h"
+#include "aphid.h"
+#include "ladybird.h"
 
 Board *board1, *board2;
 int generation;
@@ -53,10 +55,12 @@ bool init() {
 
   ifstream ladybirds ("../configs/ladybirds.conf");
   if(ladybirds.is_open()) {
+    ladybirds >> Ladybird::movementProb;
+    ladybirds >> Ladybird::directionChangeProb;
+    ladybirds >> Ladybird::killProb;
+    ladybirds >> Ladybird::mateProb;
 
   } else cout << "Ladybird config not found.\n"; 
-
-  cout << Aphid::movementProb;
 
   return true;
 

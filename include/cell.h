@@ -1,9 +1,11 @@
 #ifndef CELL_H
 #define CELL_H
 #include <list>
-#include "aphid.h"
-#include "ladybird.h"
-#include "board.h"
+
+class Board;
+class Creature;
+class Aphid;
+class Ladybird;
 
 class Cell {
   private: 

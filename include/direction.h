@@ -1,1 +1,6 @@
+#ifndef DIRECTION_H
+#define DIRECTION_H
+
 enum Direction { NORTH, NORT_EAST, EAST, SOUTH_EAST, SOUTH, SOUTH_WEST, WEST, NORTH_WEST  };
+
+#endif

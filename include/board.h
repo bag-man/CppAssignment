@@ -2,6 +2,7 @@
 #define BOARD_H
 #include "cell.h"
 
+class Cell;
 class Board {
   private: 
     /*Cell ** cells; // 2d Array

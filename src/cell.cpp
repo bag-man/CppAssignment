@@ -1,4 +1,6 @@
 #include "cell.h"
+#include "aphid.h"
+#include "ladybird.h"
 #include <iostream>
 
 using namespace std;

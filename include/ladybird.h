@@ -1,6 +1,7 @@
 #ifndef LADYBIRD_H
 #define LADYBIRD_H
 #include "creature.h"
+#include "direction.h"
 
 class Ladybird : public Creature {
   private: 
