@@ -45,12 +45,10 @@ bool init() {
 
   ifstream aphids ("../configs/aphids.conf");
   if(aphids.is_open()) {
-    float X,Y,Z,A;
-    aphids >> X >> Y >> Z >> A;
-    Aphid::movementProb = X;
-    Aphid::groupAttackModifier = Y;
-    Aphid::killProb = Z;
-    Aphid::mateProb = A;
+    aphids >> Aphid::movementProb;
+    aphids >> Aphid::groupAttackModifier;
+    aphids >> Aphid::killProb;
+    aphids >> Aphid::mateProb;
   } else cout << "Aphid config not found.\n"; 
 
   ifstream ladybirds ("../configs/ladybirds.conf");
