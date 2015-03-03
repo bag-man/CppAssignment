@@ -26,11 +26,11 @@ int main() {
 
 bool init() {
 
-  int width, height;
-  string word;
+  /* Load simulation config file */
   ifstream simulation ("../configs/simulation.conf");
   if(simulation.is_open()) {
-    int aphids, ladybirds;
+
+    int aphids, ladybirds, width, height;
     simulation >> width >> height;
     board1 = new Board(width, height);
 
@@ -51,21 +51,24 @@ bool init() {
     simulation.close();
   } else cout << "Simulation config not found.\n"; 
 
+  /* Load aphids config file */
   ifstream aphids ("../configs/aphids.conf");
   if(aphids.is_open()) {
     aphids >> Aphid::movementProb;
     aphids >> Aphid::groupAttackModifier;
     aphids >> Aphid::killProb;
     aphids >> Aphid::mateProb;
+    aphids.close();
   } else cout << "Aphid config not found.\n"; 
 
+  /* Load ladybirds config file */
   ifstream ladybirds ("../configs/ladybirds.conf");
   if(ladybirds.is_open()) {
     ladybirds >> Ladybird::movementProb;
     ladybirds >> Ladybird::directionChangeProb;
     ladybirds >> Ladybird::killProb;
     ladybirds >> Ladybird::mateProb;
-
+    ladybirds.close();
   } else cout << "Ladybird config not found.\n"; 
 
   return true;
