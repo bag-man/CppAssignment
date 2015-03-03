@@ -15,6 +15,12 @@ int main() {
   init();
   board1->printBoard();
 
+  while(getchar()) {
+    board1->printBoard();
+    cout << "\n\n";
+    cout << "GENERATION: " << generation++ << "\n";
+  }
+
   return 0;
 }
 

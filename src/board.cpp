@@ -34,6 +34,7 @@ Cell * Board::getCell(int x, int y) {
 }
 
 void Board::printBoard() {
+  cout << "\033c";
   string aphid = "\e[0;30m\033[42m";
   string ladybird = "\e[0;30m\033[41m";
   string end = "\033[m";
