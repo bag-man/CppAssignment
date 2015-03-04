@@ -16,7 +16,7 @@ Cell::Cell(int x, int y) {
 
 void Cell::move(Board * board) {
   for (std::list<Aphid *>::iterator it=aphids.begin(); it != aphids.end(); ++it) {
-    findNewPosition(getXY(), (*it)->move());
+    board->findNewPosition(getXY(), (*it)->move());
   }
 }
 

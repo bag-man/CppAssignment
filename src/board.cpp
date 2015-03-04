@@ -2,7 +2,6 @@
 #include <string>
 #include <cstdlib>
 #include "board.h"
-#include "direction.h"
 
 using namespace std;
 
@@ -39,7 +38,7 @@ Cell * Board::getCell(int x, int y) {
   return cells[x][y];
 }
 
-pair<int, int> Board::findNewPosition(pair<int, int> startCell, Direction direction) {
+pair<int, int> findNewPosition(pair<int, int> startCell, Direction direction) {
 
 };
 
