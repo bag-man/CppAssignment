@@ -15,6 +15,7 @@ class Aphid : public Creature {
 
     Direction move();
     bool attack();
+    void print();
 };
 
 #endif

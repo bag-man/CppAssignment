@@ -15,7 +15,7 @@ class Cell {
 
   public:
     Cell(int x, int y);
-    void update(Cell * cell, Board * board);
+    void move(Board * board);
     void addAphid();
     void addLadybird();
     int ladybirdCount();

@@ -11,10 +11,11 @@ class Board {
 
   public:
     Board(int w, int h);
-    Board * update();
+    void move(Board * board);
     Cell * getNextGenCell();
     Cell * getCell(int x, int y);
     void printBoard();
+    std::pair<int, int> findNewPosition(pair<int, int> startCell, Direction direction);
 };
 
 #endif

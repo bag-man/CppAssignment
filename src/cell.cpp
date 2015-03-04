@@ -10,10 +10,14 @@ list<Ladybird *> ladybirds;
 int posX, posY;
 
 Cell::Cell(int x, int y) {
-
   posX = x;
   posY = y;
+}
 
+void Cell::move(Board * board) {
+  for (std::list<Aphid *>::iterator it=aphids.begin(); it != aphids.end(); ++it) {
+    findNewPosition(getXY(), (*it)->move());
+  }
 }
 
 void Cell::addAphid() {
@@ -39,8 +43,4 @@ pair<int, int> Cell::getXY() {
   cout << location.first << " " << location.second << "\n";
   */
   return make_pair(posX, posY);
-}
-
-void Cell::update(Cell * cell, Board * board) {
-
 }

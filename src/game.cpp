@@ -17,6 +17,7 @@ int main() {
 
   while(getchar()) {
     board1->printBoard();
+    board1->move(board2);
     cout << "\n\n";
     cout << "GENERATION: " << generation++ << "\n";
   }

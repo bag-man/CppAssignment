@@ -2,6 +2,7 @@
 #include <string>
 #include <cstdlib>
 #include "board.h"
+#include "direction.h"
 
 using namespace std;
 
@@ -18,7 +19,6 @@ Board::Board(int w, int h) {
     cells[i] = (Cell **) malloc(h* sizeof(Cell *));
   }
 
-
   for (int i = 0; i < w; i++){
     for (int j = 0; j < h; j++){
       cells[i][j] = new Cell(i, j);
@@ -27,11 +27,21 @@ Board::Board(int w, int h) {
 
 }
 
-Cell * Board::getCell(int x, int y) {
-
-  return cells[x][y];
-
+void Board::move(Board * board) {
+  for (int i = 0; i < width; i++){
+    for (int j = 0; j < height; j++){
+      cells[i][j]->move(board);
+    }
+  }
 }
+
+Cell * Board::getCell(int x, int y) {
+  return cells[x][y];
+}
+
+pair<int, int> Board::findNewPosition(pair<int, int> startCell, Direction direction) {
+
+};
 
 void Board::printBoard() {
   cout << "\033c";
