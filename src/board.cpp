@@ -9,7 +9,6 @@ Cell ***cells;
 int width, height;
 
 Board::Board(int w, int h) {
-
   width = w;
   height = h;
 
@@ -23,7 +22,6 @@ Board::Board(int w, int h) {
       cells[i][j] = new Cell(i, j);
     }
   }
-
 }
 
 void Board::move(Board * board) {
@@ -39,7 +37,18 @@ Cell * Board::getCell(int x, int y) {
 }
 
 pair<int, int> findNewPosition(pair<int, int> startCell, Direction direction) {
-
+  /* This is ugly */
+  std::pair<int, int> * moves = new std::pair<int, int>[8];
+  moves[0] = make_pair(-1,-1);
+  moves[1] = make_pair(0,-1);
+  moves[2] = make_pair(1,-1);
+  moves[3] = make_pair(1,0);
+  moves[4] = make_pair(1,1);
+  moves[5] = make_pair(0,1);
+  moves[6] = make_pair(-1,1);
+  moves[7] = make_pair(-1,0);
+  moves[8] = make_pair(0,0);
+  return make_pair(startCell.first - moves[direction].first, startCell.second - moves[direction].second);
 };
 
 void Board::printBoard() {

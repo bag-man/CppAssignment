@@ -1,8 +1,8 @@
 #ifndef CELL_H
 #define CELL_H
 #include <list>
+#include "board.h"
 
-class Board;
 class Creature;
 class Aphid;
 class Ladybird;
