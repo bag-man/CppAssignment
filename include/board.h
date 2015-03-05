@@ -16,7 +16,7 @@ class Board {
     Cell * getNextGenCell();
     Cell * getCell(int x, int y);
     void printBoard();
-    std::pair<int, int> findNewPosition(std::pair<int, int> startCell, Direction direction);
+    std::pair<int, int> findNewPosition(std::pair<int, int> startCell, std::pair<int, int> direction);
 };
 
 #endif

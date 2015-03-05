@@ -1,5 +1,6 @@
 #include "creature.h"
 #include "aphid.h"
+#include "direction.h"
 #include <iostream>
 #include <stdlib.h>
 
@@ -8,11 +9,11 @@ float Aphid::groupAttackModifier;
 float Aphid::killProb;
 float Aphid::mateProb;
 
-Direction Aphid::move() {
+std::pair<int, int> Aphid::move() {
   bool shouldMove = (rand() % 100) < (movementProb * 100);
   if(shouldMove) {
-    return Direction(rand() % 8);
+    return Direction::moves[rand() % 9];
   } else {
-    return STAY;
+    return Direction::STAY;
   }
 }

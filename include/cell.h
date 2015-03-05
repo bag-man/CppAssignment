@@ -6,6 +6,7 @@
 class Creature;
 class Aphid;
 class Ladybird;
+class Board;
 
 class Cell {
   private: 
@@ -15,9 +16,9 @@ class Cell {
 
   public:
     Cell(int x, int y);
-    void move(Board * board);
     void addAphid();
     void addLadybird();
+    void moveCell(Board * board);
     int ladybirdCount();
     int aphidCount();
     std::pair<int, int> getXY();
