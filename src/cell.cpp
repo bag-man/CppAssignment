@@ -15,8 +15,15 @@ Cell::Cell(int x, int y) {
 }
 
 void Cell::moveCell(Board * board) {
+  pair<int, int> curPos = getXY();
   for (std::list<Aphid *>::iterator it=aphids.begin(); it != aphids.end(); ++it) {
-    board->findNewPosition(getXY(), (*it)->move());
+    pair<int, int> newPos;
+    while(newPos.first < 0 || newPos.second < 0) {
+      pair<int, int> newPos = board->findNewPosition(getXY(), (*it)->move());
+    }
+    if(curPos != newPos) {
+      //remove from current board. Add to new board
+    }
   }
 }
 
