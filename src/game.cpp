@@ -5,7 +5,7 @@
 #include "aphid.h"
 #include "ladybird.h"
 
-Board *board1, *board2;
+Board *board1, *board2, *tmp;
 int generation;
 
 using namespace std;
@@ -13,14 +13,26 @@ using namespace std;
 int main() {
 
   init();
+  //board1->printBoard();
   board1->printBoard();
+  cout << "Press enter to begin...\n";
 
   while(getchar()) {
-    board1->printBoard();
     board1->move(board2);
+
+    /* This needs doing */
+    tmp = board2;
+    board2 = board1;
+    board1 = tmp;
+
+    /* asdasd */
+
+    board1->printBoard();
+
     cout << "\n\n";
     cout << "GENERATION: " << generation++ << "\n";
   }
+  //board2->printBoard();
 
   return 0;
 }

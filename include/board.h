@@ -15,8 +15,9 @@ class Board {
     void move(Board * board);
     Cell * getNextGenCell();
     Cell * getCell(int x, int y);
+    int getH();
+    int getW();
     void printBoard();
-    std::pair<int, int> findNewPosition(std::pair<int, int> startCell, std::pair<int, int> direction);
 };
 
 #endif

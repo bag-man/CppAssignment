@@ -22,6 +22,7 @@ class Cell {
     int ladybirdCount();
     int aphidCount();
     std::pair<int, int> getXY();
+    std::pair<int, int> findNewPosition(std::pair<int, int> direction);
 };
 
 #endif

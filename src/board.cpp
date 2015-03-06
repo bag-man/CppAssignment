@@ -17,9 +17,9 @@ Board::Board(int w, int h) {
     cells[i] = (Cell **) malloc(h* sizeof(Cell *));
   }
 
-  for (int i = 0; i < w; i++){
+  for (int n = 0; n < w; n++){
     for (int j = 0; j < h; j++){
-      cells[i][j] = new Cell(i, j);
+      cells[n][j] = new Cell(n, j);
     }
   }
 }
@@ -36,12 +36,16 @@ Cell * Board::getCell(int x, int y) {
   return cells[x][y];
 }
 
-std::pair<int, int> Board::findNewPosition(std::pair<int, int> startCell, std::pair<int, int> direction) {
-  return make_pair(startCell.first - direction.first, startCell.second - direction.second);
-};
+int Board::getW() {
+  return width;
+}
+
+int Board::getH() {
+  return height;
+}
 
 void Board::printBoard() {
-  cout << "\033c";
+  //cout << "\033c";
   string aphid = "\e[0;30m\033[42m";
   string ladybird = "\e[0;30m\033[41m";
   string end = "\033[m";

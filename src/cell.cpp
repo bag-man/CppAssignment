@@ -16,16 +16,27 @@ Cell::Cell(int x, int y) {
 
 void Cell::moveCell(Board * board) {
   pair<int, int> curPos = getXY();
-  for (std::list<Aphid *>::iterator it=aphids.begin(); it != aphids.end(); ++it) {
+  for (std::list<Aphid *>::iterator it=aphids.begin(); it != aphids.end(); /* ++it */) {
     pair<int, int> newPos;
-    while(newPos.first < 0 || newPos.second < 0) {
-      pair<int, int> newPos = board->findNewPosition(getXY(), (*it)->move());
-    }
+    do {
+      //cout << posX << "," << posY << " | ";
+      //cout << newPos.first << "," << newPos.second << "\n";
+      //getchar();
+      newPos = findNewPosition((*it)->move());
+    } while(newPos.first < 0 || newPos.second < 0 || newPos.first > board->getW() || newPos.second > board->getH());
     if(curPos != newPos) {
-      //remove from current board. Add to new board
+      board->getCell(newPos.first, newPos.second)->addAphid();
+      it = aphids.erase(it);
+    } else {
+      ++it;
     }
   }
 }
+
+pair<int, int> Cell::findNewPosition(pair<int, int> direction) {
+  //cout << posX << "," << posY << "|" << posX - direction.first << "," << posY - direction.second << "\n";
+  return make_pair(posX - direction.first, posY - direction.second);
+};
 
 void Cell::addAphid() {
   aphids.push_back(new Aphid);
