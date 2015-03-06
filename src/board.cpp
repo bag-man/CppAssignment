@@ -65,7 +65,6 @@ void Board::printBoard() {
         cout << ladybird << cells[i][j]->ladybirdCount() << end;
       else
         cout << ladybird << " " << end;
-
     }
     cout << "\n";
   }
