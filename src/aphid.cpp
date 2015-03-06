@@ -11,7 +11,6 @@ float Aphid::killProb;
 float Aphid::mateProb;
 
 std::pair<int, int> Aphid::move() {
-  srand(time(0));
   bool shouldMove = (rand() % 100) < (movementProb * 100);
   if(shouldMove) {
     return Direction::moves[rand() % 9];
