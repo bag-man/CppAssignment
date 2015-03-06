@@ -6,13 +6,13 @@
 class Cell;
 class Board {
   private: 
-    /*Cell ** cells; // 2d Array
+    Cell *** cells; // 2d Array
     int width;
-    int height;*/
+    int height;
 
   public:
     Board(int w, int h);
-    void move(Board * board);
+    Board * move();
     Cell * getNextGenCell();
     Cell * getCell(int x, int y);
     int getH();

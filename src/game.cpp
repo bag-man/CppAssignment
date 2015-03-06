@@ -1,11 +1,13 @@
 #include <string>
 #include <fstream>
 #include <iostream>
+#include <cstdlib>
 #include "game.h"
 #include "aphid.h"
 #include "ladybird.h"
 
-Board *board1, *board2, *tmp;
+Board *board, *oldBoard;
+
 int generation;
 
 using namespace std;
@@ -13,26 +15,17 @@ using namespace std;
 int main() {
 
   init();
-  //board1->printBoard();
-  board1->printBoard();
+  board->printBoard();
   cout << "Press enter to begin...\n";
 
   while(getchar()) {
-    board1->move(board2);
-
-    /* This needs doing */
-    tmp = board2;
-    board2 = board1;
-    board1 = tmp;
-
-    /* asdasd */
-
-    board1->printBoard();
-
+    oldBoard = board;
+    board = oldBoard->move();
+    board->printBoard();
+    free(oldBoard);
     cout << "\n\n";
     cout << "GENERATION: " << generation++ << "\n";
   }
-  //board2->printBoard();
 
   return 0;
 }
@@ -45,20 +38,20 @@ bool init() {
 
     int aphids, ladybirds, width, height;
     simulation >> width >> height;
-    board1 = new Board(width, height);
+    board = new Board(width, height);
 
     simulation >> aphids;
     for(int i = 0; i < aphids; i++) {
       int x, y; 
       simulation >> x >> y;
-      board1->getCell(x,y)->addAphid();
+      board->getCell(x,y)->addAphid();
     }
 
     simulation >> ladybirds;
     for(int i = 0; i < ladybirds; i++) {
       int x, y;
       simulation >> x >> y;
-      board1->getCell(x,y)->addLadybird();
+      board->getCell(x,y)->addLadybird();
     }
 
     simulation.close();

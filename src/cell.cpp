@@ -15,21 +15,18 @@ Cell::Cell(int x, int y) {
 }
 
 void Cell::moveCell(Board * board) {
-  pair<int, int> curPos = getXY();
+  //pair<int, int> curPos = getXY();
   for (std::list<Aphid *>::iterator it=aphids.begin(); it != aphids.end(); /* ++it */) {
     pair<int, int> newPos;
     do {
+      newPos = findNewPosition((*it)->move());
       //cout << posX << "," << posY << " | ";
       //cout << newPos.first << "," << newPos.second << "\n";
       //getchar();
-      newPos = findNewPosition((*it)->move());
-    } while(newPos.first < 0 || newPos.second < 0 || newPos.first > board->getW() || newPos.second > board->getH());
-    if(curPos != newPos) {
-      board->getCell(newPos.first, newPos.second)->addAphid();
-      it = aphids.erase(it);
-    } else {
-      ++it;
-    }
+    } while(newPos.first < 0 || newPos.second < 0 || newPos.first >= board->getW() || newPos.second >= board->getH());
+    //it = aphids.erase(it);
+    board->getCell(newPos.first, newPos.second)->addAphid();
+    ++it;
   }
 }
 

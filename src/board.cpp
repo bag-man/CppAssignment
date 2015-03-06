@@ -24,12 +24,14 @@ Board::Board(int w, int h) {
   }
 }
 
-void Board::move(Board * board) {
+Board * Board::move() {
+  Board * tmp = new Board(this->width, this->height);
   for (int i = 0; i < width; i++){
     for (int j = 0; j < height; j++){
-      cells[i][j]->moveCell(board);
+      cells[i][j]->moveCell(tmp);
     }
   }
+  return tmp;
 }
 
 Cell * Board::getCell(int x, int y) {
@@ -45,7 +47,7 @@ int Board::getH() {
 }
 
 void Board::printBoard() {
-  //cout << "\033c";
+  cout << "\033c";
   string aphid = "\e[0;30m\033[42m";
   string ladybird = "\e[0;30m\033[41m";
   string end = "\033[m";
