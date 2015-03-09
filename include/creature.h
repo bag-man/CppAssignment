@@ -14,6 +14,7 @@ class Creature {
   public:
     bool shouldMove();
     bool mate(Creature * partner);
+    // Where am I?
 };
 
 #endif

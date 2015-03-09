@@ -11,8 +11,12 @@ class Ladybird : public Creature {
     static float directionChangeProb;
     static float killProb;
     static float mateProb;
+    int facing;
 
-    Direction move();
+    Ladybird();
+    Ladybird(int face); 
+    std::pair<int, int> move();
+    int getFacing();
     bool attack();
 };
 

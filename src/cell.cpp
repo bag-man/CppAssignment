@@ -23,6 +23,17 @@ void Cell::moveCell(Board * board) {
     board->getCell(newPos.first, newPos.second)->addAphid();
     ++it;
   }
+
+  for (std::list<Ladybird *>::iterator it=ladybirds.begin(); it != ladybirds.end(); /* ++it */) {
+    pair<int, int> newPos;
+    int facing;
+    do {
+      newPos = findNewPosition((*it)->move());
+      facing = (*it)->getFacing();
+    } while(newPos.first < 0 || newPos.second < 0 || newPos.first >= board->getW() || newPos.second >= board->getH());
+    board->getCell(newPos.first, newPos.second)->addLadybirdFace(facing);
+    ++it;
+  }
 }
 
 pair<int, int> Cell::findNewPosition(pair<int, int> direction) {
@@ -35,6 +46,10 @@ void Cell::addAphid() {
 
 void Cell::addLadybird() {
   ladybirds.push_back(new Ladybird);
+}
+
+void Cell::addLadybirdFace(int face) {
+  ladybirds.push_back(new Ladybird(face));
 }
 
 int Cell::aphidCount() {

@@ -32,7 +32,9 @@ int main() {
 
 bool init() {
 
+  /* Seed random with time */
   srand(time(0));
+
   /* Load simulation config file */
   ifstream simulation ("../configs/simulation.conf");
   if(simulation.is_open()) {
