@@ -13,8 +13,8 @@ class Ladybird : public Creature {
     static float mateProb;
     int facing;
 
-    Ladybird();
-    Ladybird(int face); 
+    Ladybird(int x, int y);
+    Ladybird(int x, int y, int face); 
     std::pair<int, int> move();
     int getFacing();
     bool attack();

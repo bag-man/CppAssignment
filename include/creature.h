@@ -6,15 +6,17 @@ class Cell;
 class Board;
 
 class Creature {
+
   private: 
-    Cell * cell;
+    int x;
+    int y;
+
+  protected:
     bool hasMated;
     bool hasAttacked;
 
   public:
-    bool shouldMove();
-    bool mate(Creature * partner);
-    // Where am I?
+    Creature(int x, int y);
 };
 
 #endif

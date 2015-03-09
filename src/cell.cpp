@@ -41,15 +41,15 @@ pair<int, int> Cell::findNewPosition(pair<int, int> direction) {
 };
 
 void Cell::addAphid() {
-  aphids.push_back(new Aphid);
+  aphids.push_back(new Aphid(posX, posY));
 }
 
 void Cell::addLadybird() {
-  ladybirds.push_back(new Ladybird);
+  ladybirds.push_back(new Ladybird(posX, posY));
 }
 
 void Cell::addLadybirdFace(int face) {
-  ladybirds.push_back(new Ladybird(face));
+  ladybirds.push_back(new Ladybird(posX, posY, face));
 }
 
 int Cell::aphidCount() {

@@ -9,7 +9,7 @@ float Ladybird::killProb;
 float Ladybird::mateProb;
 int facing;
 
-Ladybird::Ladybird() : Creature() {
+Ladybird::Ladybird(int x, int y) : Creature(x, y) {
   facing = rand() % 8;
 }
 
@@ -25,7 +25,7 @@ std::pair<int, int> Ladybird::move() {
   }
 }
 
-Ladybird::Ladybird(int face) : Creature() {
+Ladybird::Ladybird(int x, int y, int face) : Creature(x, y) {
   facing = face;
 }
 

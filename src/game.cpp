@@ -33,7 +33,8 @@ int main() {
 bool init() {
 
   /* Seed random with time */
-  srand(time(0));
+  //srand(time(0));
+  srand(1337);
 
   /* Load simulation config file */
   ifstream simulation ("../configs/simulation.conf");

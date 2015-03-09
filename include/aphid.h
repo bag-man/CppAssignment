@@ -13,6 +13,7 @@ class Aphid : public Creature {
     static float killProb;
     static float mateProb;
 
+    Aphid(int x, int y) : Creature(x, y) {};
     std::pair<int, int> move();
     bool attack();
     void print();
