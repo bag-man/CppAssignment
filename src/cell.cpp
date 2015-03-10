@@ -2,6 +2,7 @@
 #include "aphid.h"
 #include "ladybird.h"
 #include <iostream>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,6 +21,8 @@ void Cell::moveCell(Board * board) {
     do {
       newPos = findNewPosition((*it)->move());
     } while(newPos.first < 0 || newPos.second < 0 || newPos.first >= board->getW() || newPos.second >= board->getH());
+    /*free(*it);
+    it = aphids.erase(it);*/
     board->getCell(newPos.first, newPos.second)->addAphid();
     ++it;
   }
@@ -31,6 +34,8 @@ void Cell::moveCell(Board * board) {
       newPos = findNewPosition((*it)->move());
       facing = (*it)->getFacing();
     } while(newPos.first < 0 || newPos.second < 0 || newPos.first >= board->getW() || newPos.second >= board->getH());
+    /*free(*it);
+    it = ladybirds.erase(it);*/
     board->getCell(newPos.first, newPos.second)->addLadybirdFace(facing);
     ++it;
   }
