@@ -24,6 +24,15 @@ Board::Board(int w, int h) {
   }
 }
 
+Board::~Board() {
+  for (int i = 0; i < width; i++){
+    for (int j = 0; j < height; j++){
+      delete cells[i][j];
+    }
+  }
+  free(cells);
+}
+
 Board * Board::move() {
   Board * tmp = new Board(this->width, this->height);
   for (int i = 0; i < width; i++){

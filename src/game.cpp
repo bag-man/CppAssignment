@@ -22,7 +22,7 @@ int main() {
     oldBoard = board;
     board = oldBoard->move();
     board->printBoard();
-    free(oldBoard);
+    delete oldBoard;
     cout << "\n\n";
     cout << "GENERATION: " << generation++ << "\n";
   }

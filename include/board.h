@@ -12,6 +12,7 @@ class Board {
 
   public:
     Board(int w, int h);
+    ~Board();
     Board * move();
     Cell * getNextGenCell();
     Cell * getCell(int x, int y);

@@ -16,6 +16,7 @@ class Cell {
 
   public:
     Cell(int x, int y);
+    ~Cell();
     void addAphid();
     void addLadybird();
     void addLadybirdFace(int face);
