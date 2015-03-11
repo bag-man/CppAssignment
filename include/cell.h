@@ -1,6 +1,6 @@
 #ifndef CELL_H
 #define CELL_H
-#include <list>
+#include <vector>
 #include "board.h"
 
 class Creature;
@@ -10,8 +10,8 @@ class Board;
 
 class Cell {
   private: 
-    std::list<Aphid *> aphids;
-    std::list<Ladybird *> ladybirds;
+    std::vector<Aphid> aphids;
+    std::vector<Ladybird> ladybirds;
     int posX, posY;
 
   public:
