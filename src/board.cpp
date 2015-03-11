@@ -19,7 +19,7 @@ Board::Board(int w, int h) {
 
   for (int n = 0; n < w; n++){
     for (int j = 0; j < h; j++){
-      cells[n][j] = new Cell(n, j);
+      cells[n][j] = new Cell(n, j, cells[n][j]);
     }
   }
 }

@@ -18,7 +18,9 @@ class Cell {
     Cell(int x, int y);
     ~Cell();
     void addAphid();
+    void removeAphid();
     void addLadybird();
+    void removeLadybird();
     void addLadybirdFace(int face);
     void moveCell(Board * board);
     int ladybirdCount();

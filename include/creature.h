@@ -8,10 +8,10 @@ class Board;
 class Creature {
 
   private: 
-    int x;
-    int y;
 
   protected:
+    int x;
+    int y;
     bool hasMated;
     bool hasAttacked;
 

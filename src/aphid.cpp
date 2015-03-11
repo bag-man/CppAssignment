@@ -16,3 +16,13 @@ std::pair<int, int> Aphid::move() {
     return Direction::STAY;
   }
 }
+
+void Aphid::attack() {
+  if(!hasAttacked) {
+    bool kill = (rand() % 100) < (Aphid::killProb * 100);
+    if(kill) {
+      Board::getCell(x, y)->removeLadybird();
+      hasAttacked = true;
+    }
+  }
+}

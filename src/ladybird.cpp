@@ -29,6 +29,16 @@ Ladybird::Ladybird(int x, int y, int face) : Creature(x, y) {
   facing = face;
 }
 
+void Ladybird::attack() {
+  if(!hasAttacked) {
+    bool kill = (rand() % 100) < (Ladybird::killProb * 100);
+    if(kill) {
+      Board::getCell(x, y)->removeAphid();
+      hasAttacked = true;
+    }
+  }
+}
+
 int Ladybird::getFacing() {
   return facing;
 }

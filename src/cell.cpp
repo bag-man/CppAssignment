@@ -48,6 +48,14 @@ void Cell::addAphid() {
   aphids.push_back(new Aphid(posX, posY));
 }
 
+void Cell::removeAphid() {
+  aphids.pop_front();
+}
+
+void Cell::removeLadybird() {
+  ladybirds.pop_front();
+}
+
 void Cell::addLadybird() {
   ladybirds.push_back(new Ladybird(posX, posY));
 }
