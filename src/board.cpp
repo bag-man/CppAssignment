@@ -44,7 +44,7 @@ Board * Board::move() {
 }
 
 Board * Board::attack() {
-  Board * tmp = new Board(this->width, this->height);
+  Board * tmp = this;
   for (int i = 0; i < width; i++){
     for (int j = 0; j < height; j++){
       cells[i][j]->attackCell(tmp);

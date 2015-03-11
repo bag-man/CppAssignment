@@ -49,12 +49,14 @@ void Cell::attackCell(Board * board) {
       ++it;
     }
 
+    /*
     for (std::list<Aphid *>::iterator it=aphids.begin(); it != aphids.end();) {
       if((*it)->attack()) { 
         board->getCell(posX, posY)->removeLadybird();
       }
       ++it;
     }
+    */
   }
 }
 

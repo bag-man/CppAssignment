@@ -23,6 +23,7 @@ int main() {
     board = oldBoard->move()->attack();
     board->printBoard();
     delete oldBoard;
+
     cout << "\n\n";
     cout << "GENERATION: " << generation++ << "\n";
   }
