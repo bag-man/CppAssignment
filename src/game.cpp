@@ -20,7 +20,7 @@ int main() {
 
   while(getchar()) {
     oldBoard = board;
-    board = oldBoard->move();
+    board = oldBoard->move()->attack();
     board->printBoard();
     delete oldBoard;
     cout << "\n\n";

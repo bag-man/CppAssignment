@@ -19,7 +19,7 @@ Board::Board(int w, int h) {
 
   for (int n = 0; n < w; n++){
     for (int j = 0; j < h; j++){
-      cells[n][j] = new Cell(n, j, cells[n][j]);
+      cells[n][j] = new Cell(n, j);
     }
   }
 }
@@ -38,6 +38,16 @@ Board * Board::move() {
   for (int i = 0; i < width; i++){
     for (int j = 0; j < height; j++){
       cells[i][j]->moveCell(tmp);
+    }
+  }
+  return tmp;
+}
+
+Board * Board::attack() {
+  Board * tmp = new Board(this->width, this->height);
+  for (int i = 0; i < width; i++){
+    for (int j = 0; j < height; j++){
+      cells[i][j]->attackCell(tmp);
     }
   }
   return tmp;

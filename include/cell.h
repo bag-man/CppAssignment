@@ -23,6 +23,7 @@ class Cell {
     void removeLadybird();
     void addLadybirdFace(int face);
     void moveCell(Board * board);
+    void attackCell(Board * board);
     int ladybirdCount();
     int aphidCount();
     std::pair<int, int> getXY();

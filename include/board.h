@@ -14,8 +14,9 @@ class Board {
     Board(int w, int h);
     ~Board();
     Board * move();
+    Board * attack();
     Cell * getNextGenCell();
-    static Cell * getCell(int x, int y);
+    Cell * getCell(int x, int y);
     int getH();
     int getW();
     void printBoard();

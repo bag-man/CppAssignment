@@ -17,7 +17,7 @@ class Ladybird : public Creature {
     Ladybird(int x, int y, int face); 
     std::pair<int, int> move();
     int getFacing();
-    void attack();
+    bool attack();
 };
 
 #endif

@@ -40,6 +40,24 @@ void Cell::moveCell(Board * board) {
   }
 }
 
+void Cell::attackCell(Board * board) {
+  if(aphids.size() > 0 && ladybirds.size() > 0) {
+    for (std::list<Ladybird *>::iterator it=ladybirds.begin(); it != ladybirds.end(); /* ++it */) {
+      if((*it)->attack()) { 
+        board->getCell(posX, posY)->removeAphid();
+      }
+      ++it;
+    }
+
+    for (std::list<Aphid *>::iterator it=aphids.begin(); it != aphids.end();) {
+      if((*it)->attack()) { 
+        board->getCell(posX, posY)->removeLadybird();
+      }
+      ++it;
+    }
+  }
+}
+
 pair<int, int> Cell::findNewPosition(pair<int, int> direction) {
   return make_pair(posX - direction.first, posY - direction.second);
 };
