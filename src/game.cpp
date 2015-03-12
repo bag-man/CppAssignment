@@ -12,7 +12,7 @@ using namespace std;
 
 int main() {
 
-  int generation;
+  int generation = 0;
   init();
   board->printBoard();
   cout << "\n\nPress enter to begin...\n";
