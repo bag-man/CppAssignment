@@ -5,16 +5,19 @@
 
 using namespace std;
 
-Cell ***cells;
 int width, height;
+vector<vector<Cell *>> cells;
 
 Board::Board(int w, int h) {
   width = w;
   height = h;
 
-  cells = (Cell ***) malloc(w * sizeof(Cell *));
-  for (int i = 0; i < w; i++){
-    cells[i] = (Cell **) malloc(h* sizeof(Cell *));
+  for (int n = 0; n < w; n++){
+    vector<Cell*> v2(w); 
+    for (int j = 0; j < h; j++){
+      vector<vector<Cell *>> cells2(h, v2);
+      cells = cells2;
+    }
   }
 
   for (int n = 0; n < w; n++){
@@ -30,7 +33,7 @@ Board::~Board() {
       delete cells[i][j];
     }
   }
-  free(cells);
+  //free(cells);
 }
 
 int Board::aphidCount() {

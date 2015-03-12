@@ -6,7 +6,7 @@
 class Cell;
 class Board {
   private: 
-    Cell *** cells; // 2d Array
+    std::vector<std::vector<Cell *>> cells;
     int width;
     int height;
 
