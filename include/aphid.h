@@ -15,7 +15,7 @@ class Aphid : public Creature {
 
     Aphid(int x, int y) : Creature(x, y) {};
     std::pair<int, int> move();
-    bool attack();
+    bool attack(int comrades);
     void print();
 };
 

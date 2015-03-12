@@ -17,9 +17,9 @@ std::pair<int, int> Aphid::move() {
   }
 }
 
-bool Aphid::attack() {
+bool Aphid::attack(int comrades) {
   if(!hasAttacked) {
-    bool kill = (rand() % 100) < (Aphid::killProb * 100);
+    bool kill = (rand() % 100) < ((Aphid::killProb + (Aphid::groupAttackModifier * comrades)) * 100);
     if(kill) {
       hasAttacked = true;
       return true;

@@ -21,6 +21,7 @@ int main() {
   while(getchar()) {
     oldBoard = board;
     board = oldBoard->move()->attack();
+    //board = oldBoard->attack();
     board->printBoard();
     delete oldBoard;
 

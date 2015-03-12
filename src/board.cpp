@@ -12,7 +12,7 @@ Board::Board(int w, int h) {
   width = w;
   height = h;
 
-  cells = (Cell ***) malloc(w* sizeof(Cell *));
+  cells = (Cell ***) malloc(w * sizeof(Cell *));
   for (int i = 0; i < w; i++){
     cells[i] = (Cell **) malloc(h* sizeof(Cell *));
   }

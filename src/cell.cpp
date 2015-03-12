@@ -42,16 +42,16 @@ void Cell::moveCell(Board * board) {
 }
 
 void Cell::attackCell(Board * board) {
-  if(aphids.size() > 0 && ladybirds.size() > 0) {
+  if(board->getCell(posX, posY)->aphidCount() > 0 && board->getCell(posX, posY)->ladybirdCount() > 0) {
     for (std::vector<Ladybird>::iterator it=ladybirds.begin(); it != ladybirds.end(); /* ++it */) {
-      if((*it).attack()) { 
+      if((*it).attack() && board->getCell(posX, posY)->aphidCount() > 0) { 
         board->getCell(posX, posY)->removeAphid();
       }
       ++it;
     }
 
     for (std::vector<Aphid>::iterator it=aphids.begin(); it != aphids.end();) {
-      if((*it).attack()) { 
+      if((*it).attack(aphids.size() && board->getCell(posX, posY)->ladybirdCount() > 0)) { 
         board->getCell(posX, posY)->removeLadybird();
       }
       ++it;
