@@ -51,7 +51,7 @@ void Cell::attackCell(Board * board) {
     }
 
     for (std::vector<Aphid>::iterator it=aphids.begin(); it != aphids.end();) {
-      if((*it).attack(aphids.size() && board->getCell(posX, posY)->ladybirdCount() > 0)) { 
+      if((*it).attack(aphids.size()) && board->getCell(posX, posY)->ladybirdCount() > 0) { 
         board->getCell(posX, posY)->removeLadybird();
       }
       ++it;
