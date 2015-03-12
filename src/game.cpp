@@ -20,8 +20,7 @@ int main() {
 
   while(getchar()) {
     oldBoard = board;
-    //board = oldBoard->move()->attack()->mate();
-    board = oldBoard->move()->mate();
+    board = oldBoard->move()->attack()->mate();
     board->printBoard();
     delete oldBoard;
 

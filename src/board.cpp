@@ -105,12 +105,16 @@ void Board::printBoard() {
     cout << "\n";
     for(int j = 0; j < height; j++) {
       cout << "  ";
-      if(cells[i][j]->aphidCount())
+      if(cells[i][j]->aphidCount() > 9)
+        cout << aphid << "~" << end;
+      else if(cells[i][j]->aphidCount())
         cout << aphid << cells[i][j]->aphidCount() << end;
       else
         cout << aphid << " " << end;
 
-      if(cells[i][j]->ladybirdCount())
+      if(cells[i][j]->ladybirdCount() > 9)
+        cout << ladybird << "~" << end;
+      else if(cells[i][j]->ladybirdCount())
         cout << ladybird << cells[i][j]->ladybirdCount() << end;
       else
         cout << ladybird << " " << end;
