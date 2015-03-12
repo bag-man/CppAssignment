@@ -28,6 +28,16 @@ int main() {
     cout << "GENERATION: " << generation++ << "\n";
     cout << "APHIDS: " << board->aphidCount() << "\n";
     cout << "LADYBIRDS: " << board->ladybirdCount() << "\n";
+    
+    if(board->aphidCount() == 0) {
+      cout << "\nLadybirds have won!\n\n";
+      break;
+    }
+
+    if(board->ladybirdCount() == 0) {
+      cout << "\nAphids have won!\n\n";
+      break;
+    }
   }
 
   return 0;
