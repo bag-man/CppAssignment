@@ -8,12 +8,11 @@
 
 Board *board, *oldBoard;
 
-int generation;
-
 using namespace std;
 
 int main() {
 
+  int generation;
   init();
   board->printBoard();
   cout << "\n\nPress enter to begin...\n";

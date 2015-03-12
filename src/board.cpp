@@ -34,7 +34,7 @@ Board::~Board() {
 }
 
 int Board::aphidCount() {
-  int aphids; 
+  int aphids = 0; 
   for (int i = 0; i < width; i++){
     for (int j = 0; j < height; j++){
       aphids += cells[i][j]->aphidCount();
@@ -44,7 +44,7 @@ int Board::aphidCount() {
 }
 
 int Board::ladybirdCount() {
-  int ladybirds; 
+  int ladybirds = 0; 
   for (int i = 0; i < width; i++){
     for (int j = 0; j < height; j++){
       ladybirds += cells[i][j]->ladybirdCount();
