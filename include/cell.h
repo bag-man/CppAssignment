@@ -24,6 +24,7 @@ class Cell {
     void addLadybirdFace(int face);
     void moveCell(Board * board);
     void attackCell(Board * board);
+    void mateCell(Board * board);
     int ladybirdCount();
     int aphidCount();
     std::pair<int, int> getXY();

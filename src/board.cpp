@@ -33,6 +33,26 @@ Board::~Board() {
   free(cells);
 }
 
+int Board::aphidCount() {
+  int aphids; 
+  for (int i = 0; i < width; i++){
+    for (int j = 0; j < height; j++){
+      aphids += cells[i][j]->aphidCount();
+    }
+  }
+  return aphids;
+}
+
+int Board::ladybirdCount() {
+  int ladybirds; 
+  for (int i = 0; i < width; i++){
+    for (int j = 0; j < height; j++){
+      ladybirds += cells[i][j]->ladybirdCount();
+    }
+  }
+  return ladybirds;
+}
+
 Board * Board::move() {
   Board * tmp = new Board(this->width, this->height);
   for (int i = 0; i < width; i++){
@@ -48,6 +68,16 @@ Board * Board::attack() {
   for (int i = 0; i < width; i++){
     for (int j = 0; j < height; j++){
       cells[i][j]->attackCell(tmp);
+    }
+  }
+  return tmp;
+}
+
+Board * Board::mate() {
+  Board * tmp = this;
+  for (int i = 0; i < width; i++){
+    for (int j = 0; j < height; j++){
+      cells[i][j]->mateCell(tmp);
     }
   }
   return tmp;

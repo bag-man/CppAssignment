@@ -16,17 +16,19 @@ int main() {
 
   init();
   board->printBoard();
-  cout << "Press enter to begin...\n";
+  cout << "\n\nPress enter to begin...\n";
 
   while(getchar()) {
     oldBoard = board;
-    board = oldBoard->move()->attack();
-    //board = oldBoard->attack();
+    //board = oldBoard->move()->attack()->mate();
+    board = oldBoard->move()->mate();
     board->printBoard();
     delete oldBoard;
 
     cout << "\n\n";
     cout << "GENERATION: " << generation++ << "\n";
+    cout << "APHIDS: " << board->aphidCount() << "\n";
+    cout << "LADYBIRDS: " << board->ladybirdCount() << "\n";
   }
 
   return 0;

@@ -15,8 +15,11 @@ class Board {
     ~Board();
     Board * move();
     Board * attack();
+    Board * mate();
     Cell * getNextGenCell();
     Cell * getCell(int x, int y);
+    int aphidCount();
+    int ladybirdCount();
     int getH();
     int getW();
     void printBoard();

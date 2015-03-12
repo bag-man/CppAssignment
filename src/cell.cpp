@@ -59,6 +59,20 @@ void Cell::attackCell(Board * board) {
   }
 }
 
+void Cell::mateCell(Board * board) {
+  if(aphids.size() > 1 && ladybirds.size()> 1) {
+    for(unsigned int i = 0; i < (aphids.size() / 2); i++) {
+      if((rand() % 100) < (Aphid::mateProb * 100)) {
+        board->getCell(posX, posY)->addAphid();
+      }
+    }
+    for(unsigned int i = 0; i < (ladybirds.size() / 2); i++) {
+      if((rand() % 100) < (Ladybird::mateProb * 100)) {
+        board->getCell(posX, posY)->addLadybird();
+      }
+    }
+  }
+}
 pair<int, int> Cell::findNewPosition(pair<int, int> direction) {
   return make_pair(posX - direction.first, posY - direction.second);
 };
