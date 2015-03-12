@@ -11,3 +11,7 @@ clean:
 test: $(bin)/main
 	g++ $(src)/*.cpp -o $(bin)/main -Wall -I $(inc) -std=c++11
 	./$(bin)/main
+
+memcheck: $(bin)/main
+	g++ $(src)/*.cpp -o $(bin)/main -Wall -I $(inc) -std=c++11
+	valgrind --leak-check=full ./$(bin)/main
