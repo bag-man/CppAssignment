@@ -12,7 +12,6 @@ class Creature {
   protected:
     int x;
     int y;
-    bool hasMated;
     bool hasAttacked;
 
   public:
