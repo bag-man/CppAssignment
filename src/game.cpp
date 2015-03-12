@@ -2,6 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstdlib>
+#include <unistd.h>
 #include "game.h"
 #include "aphid.h"
 #include "ladybird.h"
@@ -17,7 +18,7 @@ int main() {
   board->printBoard();
   cout << "\n\nPress enter to begin...\n";
 
-  while(getchar()) {
+  while(1) {    // getchar() for pres enter
     oldBoard = board;
     board = oldBoard->move()->attack()->mate();
     board->printBoard();
@@ -37,6 +38,7 @@ int main() {
       cout << "\nAphids have won!\n\n";
       break;
     }
+    usleep(10000); // 200000 for sane
   }
 
   return 0;
