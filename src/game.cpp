@@ -2,12 +2,14 @@
 
 using namespace std;
 
+Board *board;
+
 int main() {
 
   Board *oldBoard;
   int generation = 0;
 
-  Board *board = init();
+  init();
   board->printBoard();
   cout << "\n\nPress enter to begin...\n";
 
@@ -38,9 +40,7 @@ int main() {
   return 0;
 }
 
-Board * init() {
-
-  Board *board;
+void init() {
 
   /* Seed random with time */
   srand(time(0));
@@ -89,7 +89,5 @@ Board * init() {
     ladybirds >> Ladybird::mateProb;
     ladybirds.close();
   } else cout << "Ladybird config not found.\n"; 
-
-  return board;
 
 }

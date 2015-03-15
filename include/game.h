@@ -8,6 +8,6 @@
 #include "ladybird.h"
 
 int main();
-Board * init();
+void init();
 
 #endif
