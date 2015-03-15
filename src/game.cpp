@@ -1,6 +1,3 @@
-#include <fstream>
-#include <iostream>
-#include <unistd.h> // Unix only
 #include "game.h"
 
 using namespace std;
