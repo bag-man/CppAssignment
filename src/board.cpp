@@ -1,16 +1,14 @@
 #include "board.h"
 
-using namespace std;
-
 Board::Board(int w, int h) {
   width = w;
   height = h;
 
   /* Generate the 2d vector of cells to create the grid / board */
   for (int n = 0; n < w; n++){
-    vector<Cell*> v2(w); 
+    std::vector<Cell*> v2(w); 
     for (int j = 0; j < h; j++){
-      vector<vector<Cell *>> cells2(h, v2);
+      std::vector<std::vector<Cell *>> cells2(h, v2);
       cells = cells2;
     }
   }
@@ -33,32 +31,32 @@ Board::~Board() {
 
 void Board::printBoard() {
   /* Clear screen */
-  cout << "\033c";
+  std::cout << "\033c";
 
   /* Bash colour codes */
-  string aphid = "\e[0;30m\033[42m";
-  string ladybird = "\e[0;30m\033[41m";
-  string end = "\033[m";
+  std::string aphid = "\e[0;30m\033[42m";
+  std::string ladybird = "\e[0;30m\033[41m";
+  std::string end = "\033[m";
 
   for(int i = 0; i < width; i++) {
-    cout << "\n";
+    std::cout << "\n";
     for(int j = 0; j < height; j++) {
-      cout << "  ";
+      std::cout << "  ";
       if(cells[i][j]->aphidCount() > 9)
-        cout << aphid << "~" << end;
+        std::cout << aphid << "~" << end;
       else if(cells[i][j]->aphidCount())
-        cout << aphid << cells[i][j]->aphidCount() << end;
+        std::cout << aphid << cells[i][j]->aphidCount() << end;
       else
-        cout << aphid << " " << end;
+        std::cout << aphid << " " << end;
 
       if(cells[i][j]->ladybirdCount() > 9)
-        cout << ladybird << "~" << end;
+        std::cout << ladybird << "~" << end;
       else if(cells[i][j]->ladybirdCount())
-        cout << ladybird << cells[i][j]->ladybirdCount() << end;
+        std::cout << ladybird << cells[i][j]->ladybirdCount() << end;
       else
-        cout << ladybird << " " << end;
+        std::cout << ladybird << " " << end;
     }
-    cout << "\n";
+    std::cout << "\n";
   }
 }
 

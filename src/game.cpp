@@ -1,11 +1,21 @@
 #include "game.h"
-
-using namespace std;
+#include "docopt/docopt.h"
 
 /* This probably shouldn't be global */
 Board *board;
 
-int main() {
+int main(int argc, const char** argv) {
+
+  /* Use docopt argument parser */
+  auto args = docopt::docopt(USAGE, { argv + 1, argv + argc }, true, "1.0"); 
+  //std::map<std::string, docopt::value> args = docopt::docopt(USAGE, { argv + 1, argv + argc }, true, "1.0"); 
+
+  for(auto const& arg : args) {
+    std::cout << arg.first <<  arg.second << std::endl;
+  }
+  getchar();
+
+
   Board *oldBoard;
   int generation = 0;
 
@@ -25,22 +35,22 @@ int main() {
     /* Free up the old board */
     delete oldBoard;
 
-    cout << "\n\n";
-    cout << "GENERATION: " << generation++ << "\n";
-    cout << "APHIDS: " << board->aphidCount() << "\n";
-    cout << "LADYBIRDS: " << board->ladybirdCount() << "\n";
+    std::cout << "\n\n";
+    std::cout << "GENERATION: " << generation++ << "\n";
+    std::cout << "APHIDS: " << board->aphidCount() << "\n";
+    std::cout << "LADYBIRDS: " << board->ladybirdCount() << "\n";
     
     /* End criteria */
     if(board->aphidCount() == 0) {
-      cout << "\nLadybirds have won!\n\n";
+      std::cout << "\nLadybirds have won!\n\n";
       break;
     }
 
     if(board->ladybirdCount() == 0) {
-      cout << "\nAphids have won!\n\n";
+      std::cout << "\nAphids have won!\n\n";
       break;
     }
-    usleep(10000); // 200000 for sane
+    usleep(10000); // 200000 for sane 10000 for testing 
     //getchar();   // For user controlled
   }
 
@@ -52,7 +62,7 @@ void init() {
   srand(time(0));
 
   /* Load simulation config file */
-  ifstream simulation ("../configs/simulation.conf");
+  std::ifstream simulation ("../configs/simulation.conf");
   if(simulation.is_open()) {
 
     int aphids, ladybirds, width, height;
@@ -74,25 +84,25 @@ void init() {
     }
 
     simulation.close();
-  } else cout << "Simulation config not found.\n"; 
+  } else std::cout << "Simulation config not found.\n"; 
 
   /* Load aphids config file */
-  ifstream aphids ("../configs/aphids.conf");
+  std::ifstream aphids ("../configs/aphids.conf");
   if(aphids.is_open()) {
     aphids >> Aphid::movementProb;
     aphids >> Aphid::groupAttackModifier;
     aphids >> Aphid::killProb;
     aphids >> Aphid::mateProb;
     aphids.close();
-  } else cout << "Aphid config not found.\n"; 
+  } else std::cout << "Aphid config not found.\n"; 
 
   /* Load ladybirds config file */
-  ifstream ladybirds ("../configs/ladybirds.conf");
+  std::ifstream ladybirds ("../configs/ladybirds.conf");
   if(ladybirds.is_open()) {
     ladybirds >> Ladybird::movementProb;
     ladybirds >> Ladybird::directionChangeProb;
     ladybirds >> Ladybird::killProb;
     ladybirds >> Ladybird::mateProb;
     ladybirds.close();
-  } else cout << "Ladybird config not found.\n"; 
+  } else std::cout << "Ladybird config not found.\n"; 
 }

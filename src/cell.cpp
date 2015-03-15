@@ -1,7 +1,5 @@
 #include "cell.h"
 
-using namespace std;
-
 Cell::Cell(int x, int y) {
   posX = x;
   posY = y;
@@ -10,7 +8,7 @@ Cell::Cell(int x, int y) {
 void Cell::moveCell(Board * board) {
   /* Iterate over Aphids and move them to the new board */
   for(auto it=aphids.begin(); it != aphids.end(); ++it) {
-    pair<int, int> newPos;
+    std::pair<int, int> newPos;
     do {
       newPos = findNewPosition((*it).move());
     } while(newPos.first < 0 || newPos.second < 0 || newPos.first >= board->getW() || newPos.second >= board->getH());
@@ -19,7 +17,7 @@ void Cell::moveCell(Board * board) {
 
   /* Iterate over ladybirds and move them to the new board */
   for(auto it=ladybirds.begin(); it != ladybirds.end(); ++it) {
-    pair<int, int> newPos;
+    std::pair<int, int> newPos;
     int facing;
     do {
       newPos = findNewPosition((*it).move());
@@ -70,8 +68,8 @@ void Cell::mateCell(Board * board) {
 }
 
 /* Get the new board position based on a direction */
-pair<int, int> Cell::findNewPosition(pair<int, int> direction) {
-  return make_pair(posX - direction.first, posY - direction.second);
+std::pair<int, int> Cell::findNewPosition(std::pair<int, int> direction) {
+  return std::make_pair(posX - direction.first, posY - direction.second);
 };
 
 /* Helper functions, add remove etc.. */
@@ -103,6 +101,6 @@ int Cell::ladybirdCount() {
   return ladybirds.size();
 }
 
-pair<int, int> Cell::getXY() {
-  return make_pair(posX, posY);
+std::pair<int, int> Cell::getXY() {
+  return std::make_pair(posX, posY);
 }
