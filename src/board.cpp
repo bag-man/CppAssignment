@@ -6,6 +6,7 @@ Board::Board(int w, int h) {
   width = w;
   height = h;
 
+  /* Generate the 2d vector of cells to create the grid / board */
   for (int n = 0; n < w; n++){
     vector<Cell*> v2(w); 
     for (int j = 0; j < h; j++){
@@ -14,6 +15,7 @@ Board::Board(int w, int h) {
     }
   }
 
+  /* Populate it with cells that know where they are */
   for (int n = 0; n < w; n++){
     for (int j = 0; j < h; j++){
       cells[n][j] = new Cell(n, j);
@@ -30,7 +32,10 @@ Board::~Board() {
 }
 
 void Board::printBoard() {
+  /* Clear screen */
   cout << "\033c";
+
+  /* Bash colour codes */
   string aphid = "\e[0;30m\033[42m";
   string ladybird = "\e[0;30m\033[41m";
   string end = "\033[m";
