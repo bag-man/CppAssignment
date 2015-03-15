@@ -1,14 +1,6 @@
-#include <iostream>
-#include <string>
-#include <cstdlib>
 #include "board.h"
 
 using namespace std;
-
-/*
-int width, height;
-vector<vector<Cell *>> cells;
-*/
 
 Board::Board(int w, int h) {
   width = w;
@@ -35,27 +27,34 @@ Board::~Board() {
       delete cells[i][j];
     }
   }
-  //free(cells);
 }
 
-int Board::aphidCount() {
-  int aphids = 0; 
-  for (int i = 0; i < width; i++){
-    for (int j = 0; j < height; j++){
-      aphids += cells[i][j]->aphidCount();
-    }
-  }
-  return aphids;
-}
+void Board::printBoard() {
+  cout << "\033c";
+  string aphid = "\e[0;30m\033[42m";
+  string ladybird = "\e[0;30m\033[41m";
+  string end = "\033[m";
 
-int Board::ladybirdCount() {
-  int ladybirds = 0; 
-  for (int i = 0; i < width; i++){
-    for (int j = 0; j < height; j++){
-      ladybirds += cells[i][j]->ladybirdCount();
+  for(int i = 0; i < width; i++) {
+    cout << "\n";
+    for(int j = 0; j < height; j++) {
+      cout << "  ";
+      if(cells[i][j]->aphidCount() > 9)
+        cout << aphid << "~" << end;
+      else if(cells[i][j]->aphidCount())
+        cout << aphid << cells[i][j]->aphidCount() << end;
+      else
+        cout << aphid << " " << end;
+
+      if(cells[i][j]->ladybirdCount() > 9)
+        cout << ladybird << "~" << end;
+      else if(cells[i][j]->ladybirdCount())
+        cout << ladybird << cells[i][j]->ladybirdCount() << end;
+      else
+        cout << ladybird << " " << end;
     }
+    cout << "\n";
   }
-  return ladybirds;
 }
 
 Board * Board::move() {
@@ -88,6 +87,26 @@ Board * Board::mate() {
   return tmp;
 }
 
+int Board::aphidCount() {
+  int aphids = 0; 
+  for (int i = 0; i < width; i++){
+    for (int j = 0; j < height; j++){
+      aphids += cells[i][j]->aphidCount();
+    }
+  }
+  return aphids;
+}
+
+int Board::ladybirdCount() {
+  int ladybirds = 0; 
+  for (int i = 0; i < width; i++){
+    for (int j = 0; j < height; j++){
+      ladybirds += cells[i][j]->ladybirdCount();
+    }
+  }
+  return ladybirds;
+}
+
 Cell * Board::getCell(int x, int y) {
   return cells[x][y];
 }
@@ -100,31 +119,3 @@ int Board::getH() {
   return height;
 }
 
-void Board::printBoard() {
-  cout << "\033c";
-  string aphid = "\e[0;30m\033[42m";
-  string ladybird = "\e[0;30m\033[41m";
-  string end = "\033[m";
-
-  for(int i = 0; i < width; i++) {
-    cout << "\n";
-    for(int j = 0; j < height; j++) {
-      cout << "  ";
-      if(cells[i][j]->aphidCount() > 9)
-        cout << aphid << "~" << end;
-      else if(cells[i][j]->aphidCount())
-        cout << aphid << cells[i][j]->aphidCount() << end;
-      else
-        cout << aphid << " " << end;
-
-      if(cells[i][j]->ladybirdCount() > 9)
-        cout << ladybird << "~" << end;
-      else if(cells[i][j]->ladybirdCount())
-        cout << ladybird << cells[i][j]->ladybirdCount() << end;
-      else
-        cout << ladybird << " " << end;
-    }
-    cout << "\n";
-  }
-
-}

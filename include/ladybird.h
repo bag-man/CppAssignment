@@ -1,5 +1,6 @@
 #ifndef LADYBIRD_H
 #define LADYBIRD_H
+#include <cstdlib>
 #include "creature.h"
 #include "direction.h"
 

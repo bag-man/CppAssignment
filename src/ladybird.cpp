@@ -1,7 +1,4 @@
-#include "creature.h"
 #include "ladybird.h"
-#include <cstdlib>
-#include <iostream>
 
 float Ladybird::movementProb;
 float Ladybird::directionChangeProb;

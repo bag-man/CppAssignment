@@ -1,24 +1,10 @@
 #include "cell.h"
-#include "aphid.h"
-#include "ladybird.h"
-#include <iostream>
-#include <cstdlib>
-#include <vector>
 
 using namespace std;
-
-/*
-vector<Aphid> aphids;
-vector<Ladybird> ladybirds;
-int posX, posY;
-*/
 
 Cell::Cell(int x, int y) {
   posX = x;
   posY = y;
-}
-
-Cell::~Cell() {
 }
 
 void Cell::moveCell(Board * board) {

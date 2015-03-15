@@ -1,9 +1,5 @@
 #ifndef CREATURE_H
 #define CREATURE_H
-#include "cell.h"
-
-class Cell;
-class Board;
 
 class Creature {
 

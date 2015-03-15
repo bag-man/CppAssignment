@@ -1,24 +1,20 @@
-#include <string>
 #include <fstream>
 #include <iostream>
-#include <cstdlib>
 #include <unistd.h> // Unix only
 #include "game.h"
-#include "aphid.h"
-#include "ladybird.h"
-
-Board *board, *oldBoard;
 
 using namespace std;
 
 int main() {
 
+  Board *oldBoard;
   int generation = 0;
-  init();
+
+  Board *board = init();
   board->printBoard();
   cout << "\n\nPress enter to begin...\n";
 
-  while(1) {    // getchar() for pres enter
+  while(1) {   
     oldBoard = board;
     board = oldBoard->move()->attack()->mate();
     board->printBoard();
@@ -39,12 +35,15 @@ int main() {
       break;
     }
     usleep(10000); // 200000 for sane
+    //getchar();
   }
 
   return 0;
 }
 
-bool init() {
+Board * init() {
+
+  Board *board;
 
   /* Seed random with time */
   srand(time(0));
@@ -94,6 +93,6 @@ bool init() {
     ladybirds.close();
   } else cout << "Ladybird config not found.\n"; 
 
-  return true;
+  return board;
 
 }

@@ -1,9 +1,11 @@
 #ifndef CELL_H
 #define CELL_H
 #include <vector>
+#include <iostream>
 #include "board.h"
+#include "aphid.h"
+#include "ladybird.h"
 
-class Creature;
 class Aphid;
 class Ladybird;
 class Board;
@@ -16,7 +18,6 @@ class Cell {
 
   public:
     Cell(int x, int y);
-    ~Cell();
     void addAphid();
     void removeAphid();
     void addLadybird();
