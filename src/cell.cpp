@@ -7,9 +7,11 @@
 
 using namespace std;
 
+/*
 vector<Aphid> aphids;
 vector<Ladybird> ladybirds;
 int posX, posY;
+*/
 
 Cell::Cell(int x, int y) {
   posX = x;

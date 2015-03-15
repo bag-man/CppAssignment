@@ -15,15 +15,6 @@ int width;
 int height;
 */
 
-/* Update the game, new generation */
-void update();
-
-/* Run when the game ends */
-void quit();
-
-/* Read in the configuration files */
-bool loadFiles();
-
 /* initialise the game / create the board */
 bool init();
 

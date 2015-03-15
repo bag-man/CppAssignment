@@ -1,7 +1,7 @@
 #include "creature.h"
 #include "aphid.h"
 #include "direction.h"
-#include <stdlib.h>
+#include <cstdlib>
 
 float Aphid::movementProb;
 float Aphid::groupAttackModifier;

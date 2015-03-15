@@ -1,6 +1,6 @@
 #include "creature.h"
 #include "ladybird.h"
-#include <stdlib.h>
+#include <cstdlib>
 #include <iostream>
 
 float Ladybird::movementProb;

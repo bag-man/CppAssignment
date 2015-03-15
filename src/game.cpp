@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iostream>
 #include <cstdlib>
-#include <unistd.h>
+#include <unistd.h> // Unix only
 #include "game.h"
 #include "aphid.h"
 #include "ladybird.h"

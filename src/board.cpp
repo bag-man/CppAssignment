@@ -5,8 +5,10 @@
 
 using namespace std;
 
+/*
 int width, height;
 vector<vector<Cell *>> cells;
+*/
 
 Board::Board(int w, int h) {
   width = w;
