@@ -8,47 +8,50 @@ Cell::Cell(int x, int y) {
 }
 
 void Cell::moveCell(Board * board) {
-  for(auto it=aphids.begin(); it != aphids.end(); /* ++it */) {
+  /* Iterate over Aphids and move them to the new board */
+  for(auto it=aphids.begin(); it != aphids.end(); ++it) {
     pair<int, int> newPos;
     do {
       newPos = findNewPosition((*it).move());
     } while(newPos.first < 0 || newPos.second < 0 || newPos.first >= board->getW() || newPos.second >= board->getH());
-    board->getCell(newPos.first, newPos.second)->addAphid();
-    ++it;
+    board->getCell(newPos.first, newPos.second)->addAphid(); // This should MOVE the object really. 
   }
 
-  for(auto it=ladybirds.begin(); it != ladybirds.end(); /* ++it */) {
+  /* Iterate over ladybirds and move them to the new board */
+  for(auto it=ladybirds.begin(); it != ladybirds.end(); ++it) {
     pair<int, int> newPos;
     int facing;
     do {
       newPos = findNewPosition((*it).move());
-      facing = (*it).getFacing();
+      facing = (*it).getFacing(); // To retain direction. Should be passing the object. 
     } while(newPos.first < 0 || newPos.second < 0 || newPos.first >= board->getW() || newPos.second >= board->getH());
     board->getCell(newPos.first, newPos.second)->addLadybirdFace(facing);
-    ++it;
   }
 }
 
 void Cell::attackCell(Board * board) {
+  /* If a cell has aphids & ladybirds */
   if(board->getCell(posX, posY)->aphidCount() > 0 && board->getCell(posX, posY)->ladybirdCount() > 0) {
-    for(auto it=ladybirds.begin(); it != ladybirds.end(); /* ++it */) {
+
+    /* Iterate over ladybirds and see if they kill any aphids */
+    for(auto it=ladybirds.begin(); it != ladybirds.end(); ++it) {
       if((*it).attack() && board->getCell(posX, posY)->aphidCount() > 0) { 
         board->getCell(posX, posY)->removeAphid();
       }
-      ++it;
     }
 
-    for(auto it=aphids.begin(); it != aphids.end();) {
+    /* Iterate over aphids and see if they kill any ladybirds */
+    for(auto it=aphids.begin(); it != aphids.end(); ++it) {
       if((*it).attack(aphids.size()) && board->getCell(posX, posY)->ladybirdCount() > 0) { 
         board->getCell(posX, posY)->removeLadybird();
       }
-      ++it;
     }
   }
 }
 
 void Cell::mateCell(Board * board) {
   if(aphids.size() > 1) { 
+    /* For the number of pairs of aphids, see if they mate */
     for(unsigned int i = 0; i < (aphids.size() / 2); i++) {
       if((rand() % 100) < (Aphid::mateProb * 100)) {
         board->getCell(posX, posY)->addAphid();
@@ -57,6 +60,7 @@ void Cell::mateCell(Board * board) {
   }
 
   if(ladybirds.size() > 1) {
+    /* For the number of pairs of ladybirds, see if they mate */
     for(unsigned int i = 0; i < (ladybirds.size() / 2); i++) {
       if((rand() % 100) < (Ladybird::mateProb * 100)) {
         board->getCell(posX, posY)->addLadybird();
@@ -65,10 +69,12 @@ void Cell::mateCell(Board * board) {
   }
 }
 
+/* Get the new board position based on a direction */
 pair<int, int> Cell::findNewPosition(pair<int, int> direction) {
   return make_pair(posX - direction.first, posY - direction.second);
 };
 
+/* Helper functions, add remove etc.. */
 void Cell::addAphid() {
   aphids.emplace_back(posX, posY);
 }
@@ -98,10 +104,5 @@ int Cell::ladybirdCount() {
 }
 
 pair<int, int> Cell::getXY() {
-  /*
-  pair<int, int> location = board1->getCell(x,y)->getXY();
-  cout << x << " " << y << "\n";
-  cout << location.first << " " << location.second << "\n";
-  */
   return make_pair(posX, posY);
 }

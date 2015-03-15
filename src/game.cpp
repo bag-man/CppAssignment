@@ -2,6 +2,7 @@
 
 using namespace std;
 
+/* This probably shouldn't be global */
 Board *board;
 
 int main() {
@@ -9,14 +10,20 @@ int main() {
   Board *oldBoard;
   int generation = 0;
 
+  /* Load and display the starting board */
   init();
   board->printBoard();
-  cout << "\n\nPress enter to begin...\n";
 
   while(1) {   
+
+    /* Copy the current board so it can be removed once used */
     oldBoard = board;
+
+    /* Each step returns a temprorary board and works on that, new board is updated */
     board = oldBoard->move()->attack()->mate();
     board->printBoard();
+
+    /* Free up the old board */
     delete oldBoard;
 
     cout << "\n\n";
@@ -24,6 +31,7 @@ int main() {
     cout << "APHIDS: " << board->aphidCount() << "\n";
     cout << "LADYBIRDS: " << board->ladybirdCount() << "\n";
     
+    /* End criteria */
     if(board->aphidCount() == 0) {
       cout << "\nLadybirds have won!\n\n";
       break;
@@ -34,7 +42,7 @@ int main() {
       break;
     }
     usleep(10000); // 200000 for sane
-    //getchar();
+    //getchar();   // For user controlled
   }
 
   return 0;

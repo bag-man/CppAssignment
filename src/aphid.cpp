@@ -1,5 +1,6 @@
 #include "aphid.h"
 
+/* These are static constants that are set from the config files */
 float Aphid::movementProb;
 float Aphid::groupAttackModifier;
 float Aphid::killProb;

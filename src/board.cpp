@@ -62,6 +62,7 @@ void Board::printBoard() {
   }
 }
 
+/* Iterate over the cells and run the move into a temp board */
 Board * Board::move() {
   Board * tmp = new Board(this->width, this->height);
   for (int i = 0; i < width; i++){
@@ -72,6 +73,7 @@ Board * Board::move() {
   return tmp;
 }
 
+/* Iterate over a temporary board and attack */
 Board * Board::attack() {
   Board * tmp = this;
   for (int i = 0; i < width; i++){
@@ -82,6 +84,7 @@ Board * Board::attack() {
   return tmp;
 }
 
+/* Iterate over a temporary board and mate */
 Board * Board::mate() {
   Board * tmp = this;
   for (int i = 0; i < width; i++){
@@ -92,6 +95,7 @@ Board * Board::mate() {
   return tmp;
 }
 
+/* Count the total aphids on the board */
 int Board::aphidCount() {
   int aphids = 0; 
   for (int i = 0; i < width; i++){
@@ -102,6 +106,7 @@ int Board::aphidCount() {
   return aphids;
 }
 
+/* Count the total ladybirds on the board */
 int Board::ladybirdCount() {
   int ladybirds = 0; 
   for (int i = 0; i < width; i++){
@@ -112,6 +117,7 @@ int Board::ladybirdCount() {
   return ladybirds;
 }
 
+/* Helper functions for Cells and H+W */
 Cell * Board::getCell(int x, int y) {
   return cells[x][y];
 }

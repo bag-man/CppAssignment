@@ -1,5 +1,13 @@
 #include "direction.h"
 
+ /*
+ *
+ * 0 | 1 | 2
+ * 7 | 8 | 3
+ * 6 | 5 | 4
+ *
+ */
+
 const std::pair<int, int> Direction::NORTH_WEST = std::make_pair(-1,-1);
 const std::pair<int, int> Direction::NORTH      = std::make_pair(0,-1);
 const std::pair<int, int> Direction::NORTH_EAST = std::make_pair(1,-1);

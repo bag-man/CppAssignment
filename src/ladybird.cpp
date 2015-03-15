@@ -1,15 +1,22 @@
 #include "ladybird.h"
 
+/* These are static constants read in from the config files */
 float Ladybird::movementProb;
 float Ladybird::directionChangeProb;
 float Ladybird::killProb;
 float Ladybird::mateProb;
-int facing;
 
+/* Initialise facing a random direction */
 Ladybird::Ladybird(int x, int y) : Creature(x, y) {
   facing = rand() % 8;
 }
 
+/* Initialise with a direction, this is a hack and shouldn't be done in a properly OO solution */
+Ladybird::Ladybird(int x, int y, int face) : Creature(x, y) {
+  facing = face;
+}
+
+/* Determine direction of movement */
 std::pair<int, int> Ladybird::move() {
   bool shouldMove = (rand() % 100) < (Ladybird::movementProb * 100);
   if(shouldMove) {
@@ -22,10 +29,8 @@ std::pair<int, int> Ladybird::move() {
   }
 }
 
-Ladybird::Ladybird(int x, int y, int face) : Creature(x, y) {
-  facing = face;
-}
 
+/* Determine if it has killed, this could be done in creature if it weren't for the static vars */
 bool Ladybird::attack() {
   if(!hasAttacked) {
     bool kill = (rand() % 100) < (Ladybird::killProb * 100);
@@ -37,6 +42,7 @@ bool Ladybird::attack() {
   return false;
 }
 
+/* Helpers */
 int Ladybird::getFacing() {
   return facing;
 }
