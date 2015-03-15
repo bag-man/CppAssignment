@@ -8,11 +8,16 @@ int main(int argc, const char** argv) {
 
   /* Use docopt argument parser */
   auto args = docopt::docopt(USAGE, { argv + 1, argv + argc }, true, "1.0"); 
-  //std::map<std::string, docopt::value> args = docopt::docopt(USAGE, { argv + 1, argv + argc }, true, "1.0"); 
 
-  for(auto const& arg : args) {
-    std::cout << arg.first <<  arg.second << std::endl;
+  if(args["--config"]){
+    std::cout << "Looking for configs in: " << args["--config"].asString() << "\n";
+    init(args["--config"].asString());
+  } else {
+    std::cout << "No config folder provided, using default 'configs/'\n";
+    init("configs/");
   }
+    
+  std::cout << "\n\nPress enter to begin the simulation... ";
   getchar();
 
 
@@ -20,7 +25,6 @@ int main(int argc, const char** argv) {
   int generation = 0;
 
   /* Load and display the starting board */
-  init();
   board->printBoard();
 
   while(1) {   
@@ -57,12 +61,17 @@ int main(int argc, const char** argv) {
   return 0;
 }
 
-void init() {
+void quit() {
+  std::cout << USAGE; 
+  exit(1);
+}
+
+void init(std::string dir) {
   /* Seed random with time */
   srand(time(0));
 
   /* Load simulation config file */
-  std::ifstream simulation ("../configs/simulation.conf");
+  std::ifstream simulation (dir + "/simulation.conf");
   if(simulation.is_open()) {
 
     int aphids, ladybirds, width, height;
@@ -84,25 +93,34 @@ void init() {
     }
 
     simulation.close();
-  } else std::cout << "Simulation config not found.\n"; 
+  } else { 
+    std::cout << "Simulation config not found in " << dir << ".\n"; 
+    quit();
+  }
 
   /* Load aphids config file */
-  std::ifstream aphids ("../configs/aphids.conf");
+  std::ifstream aphids (dir + "/aphids.conf");
   if(aphids.is_open()) {
     aphids >> Aphid::movementProb;
     aphids >> Aphid::groupAttackModifier;
     aphids >> Aphid::killProb;
     aphids >> Aphid::mateProb;
     aphids.close();
-  } else std::cout << "Aphid config not found.\n"; 
+  } else { 
+    std::cout << "Aphid config not found in " << dir << ".\n"; 
+    quit();
+  }
 
   /* Load ladybirds config file */
-  std::ifstream ladybirds ("../configs/ladybirds.conf");
+  std::ifstream ladybirds (dir + "/ladybirds.conf");
   if(ladybirds.is_open()) {
     ladybirds >> Ladybird::movementProb;
     ladybirds >> Ladybird::directionChangeProb;
     ladybirds >> Ladybird::killProb;
     ladybirds >> Ladybird::mateProb;
     ladybirds.close();
-  } else std::cout << "Ladybird config not found.\n"; 
+  } else {
+    std::cout << "Ladybird config not found in " << dir << ".\n"; 
+    quit();
+  }
 }

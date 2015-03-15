@@ -12,17 +12,30 @@ static const char USAGE[] =
     Ladybirds and Aphids simulation.
 
     Usage:
-    ./main [--config=<dir>]
+      ./main [--config=<dir>]
 
     Options:
-    -h --help Show this screen.
-    --version Show version.
-    --config=<dir> directory to load config files from [default: configs/].
+      -h --help Show this screen.
+      --version Show version.
+      --config=<dir> directory to load config files from [default: configs/].
+
+    Configs:
+      In the configs folder you need:
+      
+      * simulation.conf
+      * aphids.conf
+      * ladybirds.conf
+
+      These will dictate the properties of the creatures and where they begin. 
+      Check the docs folder for more information.
   )";
 
 int main(int argc, const char** argv);
 
+/* Exit with usage */
+void quit();
+
 /* Load files and generate initial board */
-void init();
+void init(std::string dir);
 
 #endif
