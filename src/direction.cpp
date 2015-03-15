@@ -1,10 +1,20 @@
 #include "direction.h"
 
- /*
+ /* 
+ *
+ * Cell grid numbers -> directions
  *
  * 0 | 1 | 2
  * 7 | 8 | 3
  * 6 | 5 | 4
+ *
+ * -1,-1 | 0,-1 | 1,-1
+ *
+ *  1, 0 | 1, 1 | 0, 1
+ *
+ * -1 ,1 | -1,0 | 0, 0
+ *
+ * Direction::moves[3] == Direction::EAST == 1,0
  *
  */
 

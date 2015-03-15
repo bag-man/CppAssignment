@@ -6,7 +6,6 @@ using namespace std;
 Board *board;
 
 int main() {
-
   Board *oldBoard;
   int generation = 0;
 
@@ -49,7 +48,6 @@ int main() {
 }
 
 void init() {
-
   /* Seed random with time */
   srand(time(0));
 
@@ -97,5 +95,4 @@ void init() {
     ladybirds >> Ladybird::mateProb;
     ladybirds.close();
   } else cout << "Ladybird config not found.\n"; 
-
 }
