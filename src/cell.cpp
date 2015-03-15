@@ -22,7 +22,7 @@ Cell::~Cell() {
 }
 
 void Cell::moveCell(Board * board) {
-  for (std::vector<Aphid>::iterator it=aphids.begin(); it != aphids.end(); /* ++it */) {
+  for(auto it=aphids.begin(); it != aphids.end(); /* ++it */) {
     pair<int, int> newPos;
     do {
       newPos = findNewPosition((*it).move());
@@ -31,7 +31,7 @@ void Cell::moveCell(Board * board) {
     ++it;
   }
 
-  for (std::vector<Ladybird>::iterator it=ladybirds.begin(); it != ladybirds.end(); /* ++it */) {
+  for(auto it=ladybirds.begin(); it != ladybirds.end(); /* ++it */) {
     pair<int, int> newPos;
     int facing;
     do {
@@ -45,14 +45,14 @@ void Cell::moveCell(Board * board) {
 
 void Cell::attackCell(Board * board) {
   if(board->getCell(posX, posY)->aphidCount() > 0 && board->getCell(posX, posY)->ladybirdCount() > 0) {
-    for (std::vector<Ladybird>::iterator it=ladybirds.begin(); it != ladybirds.end(); /* ++it */) {
+    for(auto it=ladybirds.begin(); it != ladybirds.end(); /* ++it */) {
       if((*it).attack() && board->getCell(posX, posY)->aphidCount() > 0) { 
         board->getCell(posX, posY)->removeAphid();
       }
       ++it;
     }
 
-    for (std::vector<Aphid>::iterator it=aphids.begin(); it != aphids.end();) {
+    for(auto it=aphids.begin(); it != aphids.end();) {
       if((*it).attack(aphids.size()) && board->getCell(posX, posY)->ladybirdCount() > 0) { 
         board->getCell(posX, posY)->removeLadybird();
       }
