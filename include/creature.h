@@ -3,6 +3,7 @@
 
 class Creature {
 
+  /* This class should do more if I was properly OO'ing */
   private: 
 
   protected:
