@@ -67,7 +67,6 @@ int main(int argc, const char** argv) {
 
 void quit() {
   std::cout << USAGE; 
-  delete board;
   exit(1);
 }
 
