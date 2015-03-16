@@ -16,10 +16,8 @@ int main(int argc, const char** argv) {
     std::cout << "No config folder provided, using default 'configs/'\n";
     init("configs/");
   }
-    
-  std::cout << "\n\nPress enter to begin the simulation... ";
+  std::cout << "\nPress enter to begin the simulation... ";
   getchar();
-
 
   Board *oldBoard;
   int generation = 0;
@@ -54,8 +52,13 @@ int main(int argc, const char** argv) {
       std::cout << "\nAphids have won!\n\n";
       break;
     }
-    usleep(10000); // 200000 for sane 10000 for testing 
-    //getchar();   // For user controlled
+
+    if(args["--step"].asBool()){
+      std::cout << "\nPress enter to continue.\n";
+      getchar();     // For user controlled
+    } else {
+      usleep(10000); // 200000 for sane 10000 for testing 
+    }
   }
 
   return 0;

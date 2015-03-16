@@ -12,12 +12,13 @@ static const char USAGE[] =
     Ladybirds and Aphids simulation.
 
     Usage:
-      ./main [--config=<dir>]
+      ./main [--config=<dir>] [--step]
 
     Options:
-      -h --help Show this screen.
-      --version Show version.
-      --config=<dir> directory to load config files from [default: configs/].
+      -h --help       Show this screen.
+      --version       Show version.
+      --config=<dir>  Rirectory to load config files from [default: configs/].
+      --step          Require enter press to step through animation, defaults to auto run.
 
     Configs:
       In the configs folder you need:
