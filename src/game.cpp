@@ -16,14 +16,15 @@ int main(int argc, const char** argv) {
     std::cout << "No config folder provided, using default 'configs/'\n";
     init("configs/");
   }
+
+  /* Load and display the starting board */
+  board->printBoard();
+
   std::cout << "\nPress enter to begin the simulation... ";
   getchar();
 
   Board *oldBoard;
   int generation = 0;
-
-  /* Load and display the starting board */
-  board->printBoard();
 
   while(1) {   
 
@@ -57,7 +58,7 @@ int main(int argc, const char** argv) {
       std::cout << "\nPress enter to continue.\n";
       getchar();     // For user controlled
     } else {
-      usleep(10000); // 200000 for sane 10000 for testing 
+      usleep(100000); // 200000 for sane 10000 for testing 
     }
   }
 
@@ -66,6 +67,7 @@ int main(int argc, const char** argv) {
 
 void quit() {
   std::cout << USAGE; 
+  delete board;
   exit(1);
 }
 
