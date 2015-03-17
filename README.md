@@ -27,39 +27,75 @@ This is my first attempt at making a project in C++, you can see the specificati
 ### Folder structure of included files. 
 
 ├── bin
+
 │   └── main
+
 ├── configs
+
 │   ├── aphids.conf
+
 │   ├── ladybirds.conf
+
 │   └── simulation.conf
+
 ├── docs
+
 │   ├── demo.mp4
+
 │   ├── latex
+
 │   │   ├── design.jpg
+
 │   │   ├── documentation.pdf
+
 │   │   ├── documentation.tex
+
 │   └── specification.pdf
+
 ├── include
+
 │   ├── aphid.h
+
 │   ├── board.h
+
 │   ├── cell.h
+
 │   ├── creature.h
+
 │   ├── direction.h
+
 │   ├── docopt
+
 │   │   ├── docopt.h
+
 │   │   ├── docopt_private.h
+
 │   │   ├── docopt_util.h
+
 │   │   └── docopt_value.h
+
 │   ├── game.h
+
 │   └── ladybird.h
+
 ├── Makefile
+
 ├── README.md
+
 └── src
+
     ├── aphid.cpp
+
     ├── board.cpp
+
     ├── cell.cpp
+
     ├── creature.cpp
+
     ├── direction.cpp
+
     ├── docopt.cpp
+
     ├── game.cpp
+
     └── ladybird.cpp
