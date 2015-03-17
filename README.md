@@ -1,6 +1,14 @@
 ### C++ Assignment 1 - Ladybirds and Aphids simulation. 
 
-This is my first attempt at making a project in C++, you can see the specification I was given in the docs folder. 
+#### Build instructions
+This project was made using C++11, and GCC 4.9.2. To build the application, and run it with the --step argument run:
+    
+    make
+    make test
+
+The binary is located in the bin folder, there is not an installation option. 
+
+#### Usage
 
     Ladybirds and Aphids simulation.
 
