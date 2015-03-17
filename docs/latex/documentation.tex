@@ -72,14 +72,15 @@
 %  \clearpage
 
   \section{Introduction}
-  This project felt a bit like diving in at the deep end as I had never done C++ before. Previous I had been working quite a bit in C so I feel that my implementation took more from the procedural nature of C than the object orientated one of Java. Because of this I think my implementation did not operate in a fully object orientated manner, and could be improved to do so; this would make future work on the project a lot easier. However the current implementation does provide the correct results, just in a more C like fashion than I think you would have wanted. 
+  This project felt a bit like diving in at the deep end, as I had never done C++ before. Previously I had been working quite a bit in C so I feel that my implementation took more from the procedural nature of C than the object orientated one of Java. Because of this I think my implementation did not operate in a fully object orientated manner, and could be improved to do so; this would make future work on the project a lot easier. However the current implementation does provide the correct results, just in a more C like fashion than I think you would have wanted. 
 
   I built the application on Linux using a bash shell (So that I could utilise bash colour codes), so it should work on Unix like systems. The application was developed using Vim, gcc 4.9.2, and C++11. 
 
   \section{Design}
+
   To start this project I met up with a fellow student Nicholas Dart (nid21), to discuss the assignment brief and to draft a basic design for how the program would be structured, what classes we needed and how the software would be constructed. It was quite clear from the assignment brief that we would need a main file to run the game (game.cpp), in here would be the main method that would handle the operation of the game. There would be two boards objects, made from the Board class (board.cpp), constructed here. The first would be created from the configuration files information, then the second would act as a temporary one that would act as a place holder for the next generation of the simulation. 
 
-  The board class would contain a 2D array of cells that would make up the contents of the board. These would be printed out to display the simulation, from the Board class. The cells themselves contain a list of the aphids and the ladybirds occupying that cell. This is where the object orientation of my implementation suffers. Really the cells should contain a single list of creatures (Of which ladybirds and aphids inherit from), and then operate on the single list. As I have it now operations needs to be done twice once for ladybirds and once for aphids.
+  The board class would contain a 2D array of cells that would make up the contents of the board. These would be printed out to display the simulation, from the Board class. The cells themselves contain a list of the aphids and the ladybirds occupying that cell. This is where the object orientation of my implementation suffers. Really the cells should contain a single list of creatures (Of which ladybirds and aphids inherit from), and then operate on the single list. As I have it now operations needs to be done, twice once for ladybirds and once for aphids.
   
   %\begin{landscape}
   \begin{figure}[ht!]
