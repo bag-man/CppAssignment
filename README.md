@@ -36,3 +36,48 @@ Please look in the docs folder for the specification, my written report, a video
       These will dictate the properties of the creatures and where they begin. 
       Check the docs folder for more information.
 
+#### File Structure
+    └── CS22510  
+        ├── bin  
+        │   └── main   
+        ├── configs  
+        │   ├── aphids.conf   
+        │   ├── ladybirds.conf  
+        │   └── simulation.conf  
+        ├── docs  
+        │   ├── demo.mp4  
+        │   ├── documentation.pdf  
+        │   ├── images  
+        │   │   ├── design.jpg  
+        │   │   ├── help.png  
+        │   │   ├── memcheck.png  
+        │   │   └── output.png  
+        │   ├── latex  
+        │   │   └── documentation.tex  
+        │   └── specification.pdf  
+        ├── include  
+        │   ├── aphid.h  
+        │   ├── board.h  
+        │   ├── cell.h  
+        │   ├── creature.h  
+        │   ├── direction.h  
+        │   ├── docopt  
+        │   │   ├── docopt.h  
+        │   │   ├── docopt_private.h  
+        │   │   ├── docopt_util.h  
+        │   │   └── docopt_value.h  
+        │   ├── game.h  
+        │   └── ladybird.h  
+        ├── Makefile  
+        ├── README.md  
+        └── src  
+            ├── aphid.cpp  
+            ├── board.cpp  
+            ├── cell.cpp  
+            ├── creature.cpp  
+            ├── direction.cpp  
+            ├── docopt.cpp  
+            ├── game.cpp  
+            └── ladybird.cpp    
+
+    
