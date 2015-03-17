@@ -1,12 +1,17 @@
 ### C++ Assignment 1 - Ladybirds and Aphids simulation. 
 
 #### Build instructions
-This project was made using C++11, and GCC 4.9.2. To build the application, and run it with the --step argument run:
+This project was made using C++11, and GCC 4.9.2. I have also used the [docopt](https://github.com/docopt/docopt.cpp) library, however this is bundled in the repo. 
+
+To build the application, and run it with the --step argument run:
     
     make
     make test
 
 The binary is located in the bin folder, there is not an installation option. 
+
+#### Documentation
+Please look in the docs folder for the specification, my written report, a video of the application building and running, as well as a few screenshots. 
 
 #### Usage
 
