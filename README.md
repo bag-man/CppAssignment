@@ -38,39 +38,39 @@ Please look in the docs folder for the specification, my written report, a video
 
 #### File Structure
     └── CS22510  
-        ├── bin  
+        ├── bin                           -- Contains the binary built from the Makefile
         │   └── main   
-        ├── configs  
+        ├── configs                       -- Config files that dictate the simulation 
         │   ├── aphids.conf   
         │   ├── ladybirds.conf  
         │   └── simulation.conf  
-        ├── docs  
-        │   ├── demo.mp4  
-        │   ├── documentation.pdf  
-        │   ├── images  
+        ├── docs                          -- Documentation and latex files
+        │   ├── demo.mp4                  -- Video of application being built and running 
+        │   ├── documentation.pdf         -- Written report 
+        │   ├── images                    -- Screenshots of output 
         │   │   ├── design.jpg  
         │   │   ├── help.png  
         │   │   ├── memcheck.png  
         │   │   └── output.png  
         │   ├── latex  
         │   │   └── documentation.tex  
-        │   └── specification.pdf  
-        ├── include  
+        │   └── specification.pdf         -- Assignment brief / spec 
+        ├── include                       -- Header files for the project 
         │   ├── aphid.h  
         │   ├── board.h  
         │   ├── cell.h  
         │   ├── creature.h  
         │   ├── direction.h  
-        │   ├── docopt  
+        │   ├── docopt                    -- Docopt header files
         │   │   ├── docopt.h  
         │   │   ├── docopt_private.h  
         │   │   ├── docopt_util.h  
         │   │   └── docopt_value.h  
         │   ├── game.h  
         │   └── ladybird.h  
-        ├── Makefile  
+        ├── Makefile                      -- Makefile to build and test the project 
         ├── README.md  
-        └── src  
+        └── src                           -- Source files for the application 
             ├── aphid.cpp  
             ├── board.cpp  
             ├── cell.cpp  
