@@ -34,29 +34,30 @@ void Board::printBoard() {
   std::cout << "\033c";
 
   /* Bash colour codes */
-  std::string aphid = "\e[0;30m\033[42m";
-  std::string ladybird = "\e[0;30m\033[41m";
+  std::string aphid = "\e[0;30m\033[42m";     // Green background, black text
+  std::string ladybird = "\e[0;30m\033[41m";  // Red background, black text
   std::string end = "\033[m";
 
   for(int i = 0; i < width; i++) {
     std::cout << "\n";
     for(int j = 0; j < height; j++) {
       std::cout << "  ";
-      if(cells[i][j]->aphidCount() > 9)
+      Cell * cell = cells[i][j];
+      if(cell->aphidCount() > MAX_CREATURE_DISPLAY)
         std::cout << aphid << "~" << end;
-      else if(cells[i][j]->aphidCount())
+      else if(cell->aphidCount())
         std::cout << aphid << cells[i][j]->aphidCount() << end;
       else
         std::cout << aphid << " " << end;
 
-      if(cells[i][j]->ladybirdCount() > 9)
+      if(cell->ladybirdCount() > MAX_CREATURE_DISPLAY)
         std::cout << ladybird << "~" << end;
-      else if(cells[i][j]->ladybirdCount())
+      else if(cell->ladybirdCount())
         std::cout << ladybird << cells[i][j]->ladybirdCount() << end;
       else
         std::cout << ladybird << " " << end;
     }
-    std::cout << "\n";
+    std::cout << std::endl;
   }
 }
 

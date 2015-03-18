@@ -4,6 +4,9 @@
 #include "cell.h"
 #include "direction.h"
 
+// Define the max number of creatures to display in a cell
+#define MAX_CREATURE_DISPLAY 9
+
 class Cell;
 
 class Board {
