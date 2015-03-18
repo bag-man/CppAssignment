@@ -9,7 +9,7 @@ class Creature {
   protected:
     int x;
     int y;
-    bool hasAttacked;
+    bool hasAttacked = false;
 
   public:
     Creature(int x, int y);
