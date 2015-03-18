@@ -31,7 +31,7 @@ int main(int argc, const char** argv) {
     /* Copy the current board so it can be removed once used */
     oldBoard = board;
 
-    /* Each step returns a temprorary board and works on that, new board is updated */
+    /* Each step returns a temporary board and works on that, new board is updated */
     board = oldBoard->move()->attack()->mate();
     board->printBoard();
 
