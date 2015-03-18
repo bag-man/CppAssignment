@@ -5,25 +5,25 @@ Board::Board(int w, int h) {
   height = h;
 
   /* Generate the 2d vector of cells to create the grid / board */
-  for (int n = 0; n < w; n++){
+  for(int n = 0; n < w; n++){
     std::vector<Cell*> v2(w); 
-    for (int j = 0; j < h; j++){
+    for(int j = 0; j < h; j++){
       std::vector<std::vector<Cell *>> cells2(h, v2);
       cells = cells2;
     }
   }
 
   /* Populate it with cells that know where they are */
-  for (int n = 0; n < w; n++){
-    for (int j = 0; j < h; j++){
+  for(int n = 0; n < w; n++) {
+    for(int j = 0; j < h; j++) {
       cells[n][j] = new Cell(n, j);
     }
   }
 }
 
 Board::~Board() {
-  for (int i = 0; i < width; i++){
-    for (int j = 0; j < height; j++){
+  for(int i = 0; i < width; i++) {
+    for(int j = 0; j < height; j++) {
       delete cells[i][j];
     }
   }
@@ -46,14 +46,14 @@ void Board::printBoard() {
       if(cell->aphidCount() > MAX_CREATURE_DISPLAY)
         std::cout << aphid << "~" << end;
       else if(cell->aphidCount())
-        std::cout << aphid << cells[i][j]->aphidCount() << end;
+        std::cout << aphid << cell->aphidCount() << end;
       else
         std::cout << aphid << " " << end;
 
       if(cell->ladybirdCount() > MAX_CREATURE_DISPLAY)
         std::cout << ladybird << "~" << end;
       else if(cell->ladybirdCount())
-        std::cout << ladybird << cells[i][j]->ladybirdCount() << end;
+        std::cout << ladybird << cell->ladybirdCount() << end;
       else
         std::cout << ladybird << " " << end;
     }
