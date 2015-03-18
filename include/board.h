@@ -1,6 +1,7 @@
 #ifndef BOARD_H
 #define BOARD_H
 #include <iostream>
+#include <functional>
 #include "cell.h"
 #include "direction.h"
 
@@ -25,6 +26,8 @@ class Board {
     Board * move();
     Board * attack();
     Board * mate();
+
+    void forEachCell(std::function<void(Cell*)> callback);
 
     /* Helper functions */
     Cell * getNextGenCell();

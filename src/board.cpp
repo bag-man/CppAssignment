@@ -29,6 +29,14 @@ Board::~Board() {
   }
 }
 
+void Board::forEachCell(std::function<void(Cell*)> callback) {
+  for (int i = 0; i < width; i++) {
+    for (int j = 0; j < height; j++) {
+      callback(cells[i][j]);
+    }
+  }
+} 
+
 void Board::printBoard() {
   /* Clear screen */
   std::cout << "\033c";
@@ -64,33 +72,27 @@ void Board::printBoard() {
 /* Iterate over the cells and run the move into a temp board */
 Board * Board::move() {
   Board * tmp = new Board(this->width, this->height);
-  for (int i = 0; i < width; i++){
-    for (int j = 0; j < height; j++){
-      cells[i][j]->moveCell(tmp);
-    }
-  }
+  forEachCell([&](Cell *cell) {
+    cell->moveCell(tmp);
+  }); 
   return tmp;
 }
 
 /* Iterate over a temporary board and attack */
 Board * Board::attack() {
   Board * tmp = this;
-  for (int i = 0; i < width; i++){
-    for (int j = 0; j < height; j++){
-      cells[i][j]->attackCell(tmp);
-    }
-  }
+  forEachCell([&](Cell *cell) {
+    cell->attackCell(tmp);
+  }); 
   return tmp;
 }
 
 /* Iterate over a temporary board and mate */
 Board * Board::mate() {
   Board * tmp = this;
-  for (int i = 0; i < width; i++){
-    for (int j = 0; j < height; j++){
-      cells[i][j]->mateCell(tmp);
-    }
-  }
+  forEachCell([&](Cell *cell) {
+    cell->mateCell(tmp);
+  }); 
   return tmp;
 }
 

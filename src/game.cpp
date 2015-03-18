@@ -58,7 +58,7 @@ int main(int argc, const char** argv) {
       std::cout << "\nPress enter to continue.\n";
       getchar();     // For user controlled
     } else {
-      usleep(100000); // 200000 for sane 10000 for testing 
+      usleep(10000); // 100000 for sane 10000 for testing 
     }
   }
 
