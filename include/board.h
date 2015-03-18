@@ -27,6 +27,7 @@ class Board {
     Board * attack();
     Board * mate();
 
+    /* Iterate over the cells in a board */
     void forEachCell(std::function<void(Cell*)> callback);
 
     /* Helper functions */

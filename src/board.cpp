@@ -29,6 +29,7 @@ Board::~Board() {
   }
 }
 
+/* Iterate over each cell in the board and call a function on it */
 void Board::forEachCell(std::function<void(Cell*)> callback) {
   for (int i = 0; i < width; i++) {
     for (int j = 0; j < height; j++) {
