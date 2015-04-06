@@ -1,0 +1,72 @@
+\documentclass[10pt]{article}
+\usepackage{a4wide}
+\usepackage[english]{babel}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{lastpage}
+\usepackage[superscript,biblabel]{cite}
+\usepackage[margin=1in]{geometry}
+
+\newcommand\module{CS22510}
+\newcommand\moduleName{C++, C and Java Programming Paradigms}
+\newcommand\authorText{Owen Garland}
+\newcommand\authorUsername{owg1}
+\newcommand\studentID{130072557}
+\newcommand\assesser{Fred Labrosse, Neal Snooke}
+
+\title{\huge \module Assignment 2\\ \Large \moduleName}
+\author{\vspace{100pt}
+  \begin{tabular}{r||l}
+      Author          & \authorText (\authorUsername)\\
+                      & \studentID \\
+      Date Published  & \today \\
+                      & \\
+      Assessed By     & \assesser \\
+      Department      & Computer Science \\
+      Address         & Aberystwyth University \\
+                      & Penglais Campas \\
+                      & Ceredigion \\
+                      & SY23 3DB \\
+  \end{tabular} \\
+  Copyright \textcopyright Aberystwyth University 2015
+  \date{}
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\module~Assignment}
+\rhead{\authorText~-~\studentID}
+\rfoot{Page \thepage \hspace{1pt} of \pageref{LastPage}}
+\lfoot{Aberystwyth University - Computer Science}
+
+\begin{document}
+  \setcounter{page}{1}
+
+  \maketitle
+  \thispagestyle{empty}
+  \clearpage
+
+  \tableofcontents
+  \clearpage
+
+  \section{Introduction}
+  
+  \section{C}
+  C was developed in 1972 by Dennis Ritchie, and was used to create the Unix operating system. Since then it has continued to be used to this day for a variety of purposes, generally anywhere that software needs to interact directly with hardware, such as operating systems, hardware drivers and embedded devices. The Linux Kernel for example is written almost entirely in C.\cite{torvalds} The reason for this is that C allows a lot better access to low level memory than other languages. The programmer can directly manipulate the memory of the machine by using pointers to access variables memory locations; due to this it is seen as a more difficult language to learn and use as the programmer needs to manually manage their memory without any kind of garbage collection.
+
+  C is historic, but interwoven with all Unix-like operating systems, as well as being a prime choice of language for systems that require a precise amount of performance; whether that be due to limited resources on an embedded system, or in an environment where performance is crucial.
+
+  \section{C++}
+  C++ was developed in 1983 by Bjarne Stroustrup, its core concept is to bring object orientation to the C language. Object Orientation is a very powerful paradigm that focuses on using objects to abstract and encapsulate code; making it easier to break down a problem into constituent parts to work on. 
+
+  \section{Java}
+  Java was developed in 1995 by James Gosling for Sun Microsystems. It was designed to be almost entirely object orientated, and most interestingly to be compiled once and ran anywhere. This was achieved by having the code compile down to Java byte code which could then be ran on any Java Virtual Machine (JVM) on any platform. While this does work, it does make it a requirement that systems have Java installed first. 
+
+
+  \bibliographystyle{unsrt}
+  \begin{thebibliography}{1}
+    \bibitem{torvalds}95\% of the Linux Kernel is written in C \url{https://github.com/torvalds/linux}
+
+  \end{thebibliography}
+
+\end{document}
