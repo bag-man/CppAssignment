@@ -4,6 +4,7 @@
 \usepackage{fancyhdr}
 \usepackage{hyperref}
 \usepackage{lastpage}
+\usepackage{multicol}
 \usepackage[superscript,biblabel]{cite}
 \usepackage[margin=1in]{geometry}
 
@@ -60,12 +61,13 @@
   \subsection{Suitability for this project}
   C is historic, but interwoven with all Unix-like operating systems, as well as being a prime choice of language for systems that require a precise amount of performance; whether that be due to limited resources on an embedded system, or in an environment where performance is crucial.
 
-  For this project though, neither of those factors apply as this software is not using any Unix features, nor does it need to be efficient or fast performing since it will be ran on desktop machines with more than ample resources. The project also states that the simulation is inherently object orientated\cite{assignment1} which makes using anon object orientated language clearly a bad choice. 
+  For this project though, neither of those factors apply as this software is not using any Unix features, nor does it need to be efficient or fast performing since it will be ran on desktop machines with more than ample resources. The project also states that the simulation is inherently object orientated\cite{assignment1} which makes using a non object orientated language clearly a bad choice. 
 
   Despite this it would still be possible to create the application in this way, however C++ offers the power of C with a large amount of extra features and supports full object orientation. This means that the choice between C and C++ is clear, C++ is more suitable for this project by far. Because of this there doesn't seem to be much need to compare C and Java, as C++ shares the majority of the pros and cons that Java does so it makes more sense to compare the two object orientated languages directly as they are naturally more suited to this task than C. 
 
   If this project needed to be made to work on a large Unix system and support parallel processing for performance reasons, then it may make a lot more sense to write this in C as it could be made a lot more efficient, and utilising the resources and features that such a system may have to offer could be a lot easier. However this again would is probably true of C++.
 
+  \clearpage
   \section{C++}
   C++ was developed in 1983 by Bjarne Stroustrup, its core concept is to bring object orientation to the C language. Object Orientation is a very powerful paradigm that focuses on using objects to abstract and encapsulate code; making it easier to break down a problem into constituent parts to work on. I found learning C++ to have quite a daunting learning curve despite being familiar with C and Java. In my personal experience this is mostly due to the online resources that were available being sub standard, it was quite hard to Google for solutions when compared to other languages. I think this just reflects the difficulty of the language, the people that use it regularly don't tend to need StackOverflow to find solutions to their problems. 
 
@@ -74,28 +76,31 @@
   \subsection{Suitability for this project}
   As mentioned earlier C++ is a better candidate for this project than C, simply because object orientation is a core feature of the language, and is a key requirement for this project. Some of the other advantages over C are having a String class, that makes life a lot easier, especially when it comes to formatting output, which was very important for this assignment as we were creating an animation with text. Another very useful feature is Exceptions, which make error handling a lot easier when compared to C.
   
-  One issue I encountered with C++ was the tendencies to program like I was using C, this was frustrating in small ways, such as forgetting to put the class name before a method definition and declaring global variables in both the source file and the header file, the main problem though, was that I did not make the most of the objects that I was creating, instead of having each creature be a unique object with its own properties I was simply using the object in a way similar to a struct. 
+  One issue I encountered with C++ was the tendencies to program like I was using C, this was frustrating in small ways, such as forgetting to put the class name before a method definition and declaring global variables in both the source file and the header file. The main problem though, was that I did not make the most of the objects that I was creating, instead of having each creature be a unique object with its own properties I was simply using the object in a way similar to a struct. 
   
   The application that is being built doesn't benefit from the performance gains of C++, but development does get slowed down by having to worry about garbage collection, which is something that the programmer doesn't have to worry about with Java. C++ gives the programmer more power, but also more things to worry about, since this application doesn't require the features provided by C++, Java does look like a simpler option. 
 
-  \subsection{Pro's}
+
+  \begin{multicols}{2}
+  \textbf{Pro's}
   \begin{itemize}
     \item Object Orientation + efficiency 
     \item Operator overload
     \item Strings
-    \item ISO Standard
     \item Native binaries
     \item Multiple Inheritance
     \item Exceptions
   \end{itemize}
 
-  \subsection{Con's}
+  \textbf{Con's}
   \begin{itemize}
     \item Complex OO
     \item Online documentation / support is hard to find
     \item Hard to read / write
     \item Compiler dependant behaviour
+    \item Debugging segfaults
   \end{itemize}
+\end{multicols}
 
   \section{Java}
   Java was developed in 1995 by James Gosling for Sun Microsystems. It was designed to be almost entirely object orientated, and most interestingly to be compiled once and ran anywhere. This was achieved by having the code compile down to Java byte code which could then be ran on any Java Virtual Machine (JVM) on any platform. While this does work, it does make it a requirement that systems have Java installed first. 
@@ -105,25 +110,32 @@
   \subsection{Suitability for this project}
   Java is a good choice of language for this project, there is a clear need for object orientation as mentioned earlier, and Java covers that aspect very well since object orientation is so built into the language. One of the clear differences between the languages from a programmers perspective is the inclusion of garbage collection. Not having to worry about memory management makes it a lot easier to develop applications as you can allow the JVM to do some of the hard parts for you, at the cost of less efficient code. 
 
+  This is a definite advantage over C++ with regards to this application. Whilst developing my C++ application I did have to worry about memory leaks and spend quite a long time debugging them with valgrind to make sure that there was no memory leaks. If the project had been done in Java I wouldn't have had to worry about this issue, which would have sped up development greatly. 
 
-  \subsection{Pro's}
+  From a technical standpoint this is where Java comes ahead of C++ in terms of viability for this project. The additional power (and complexity) of C++ simply aren't needed for a simple project such as this. If the project was specifically for a single platform, that would nullify Java's advantage of cross platforms binaries; if the project was also centered around performance (Running many thousands of simulations as fast as possible) then it may make sense to do the project in C++ as there would be some speed gains from using native binaries instead of ones written for the Java Virtual Machine. Sadly though that isn't the case so Java wins out here. 
+
+  Once clear downside of Java is that the end users have to have Java installed on their machine. Although most machines do have this software installed not all do and this can provide an issue for inexperienced users. There is also a small moral issue of Java being owned by Oracle and being proprietary and not open source. However this is easily avoided by using the OpenJDK alternative which is open source and freely available.
+
+  \begin{multicols}{2}
+  \textbf{Pro's}
   \begin{itemize}
     \item Platform independent binary
     \item Easy Object Orientation
-    \item Android apps
+    \item Android support
     \item Fixed definitions
     \item Garbage collection
     \item Exceptions
   \end{itemize}
 
-  \subsection{Con's}
+  \textbf{Con's}
   \begin{itemize}
     \item Everything is OO
     \item Slower than C/C++
-    \item Java is required to be installed on the machine (Proprietary == Evil)
+    \item Java is required to be installed
     \item Security
     \item Eclipse
   \end{itemize}
+  \end{multicols}
 
   \section{Language choice for this project}
   From the comparisons I have made, it appears that the most sensible choice of language for this application would be Java. This is mainly as C doesn't support true object orientation, and while C++ does support it, the application has no need for the more complex features of C++, nor is performance an issue. 
