@@ -48,11 +48,11 @@
   \clearpage
 
   \section{Introduction}
-  The ladybirds and aphids simulation assignment was written in C++, this was the first time I had used C++, so it meant that I had to spend a lot of time learning the language as well as trying to create a good solution to the problem. Once the project was completed I appear to have used more of the C style of coding than the object orientated approach of Java and C++. The issue with this is that it makes the project less maintainable and harder to extend and add new features; however I did find it simpler to develop as I had to worry less about using inheritance. 
+  The ladybirds and aphids simulation assignment was written in C++, this was the first time I had used C++, so it meant that I had to spend a lot of time learning the language as well as trying to create a good solution to the problem. Once the project was completed it became clear that I had tried to use more of the C style of coding than the object orientated approach of Java and C++. The issue with this is that it makes the project less maintainable and harder to extend and add new features; however I did find it simpler to develop as I had to worry less about using inheritance. 
 
-  My application did meet all of the requirements, but due to not treating each creature in the simulation as a unique object, but rather a representation that can be deleted and created elsewhere (Losing its properties), it would be hard to add in additional features such as a life span for each unique creature. 
+  My application did meet all of the requirements, but due to not treating each creature in the simulation as a unique object, but rather a representation that can be deleted and created elsewhere (loosing its properties), it would be hard to add in additional features such as a life span for each unique creature. 
 
-  The reason I did it this way was that it was simpler to implement in the short run as I didn't have to worry about passing objects around, or keeping ordered lists of the creatures in each cell. Instead I could just destroy them and create a new one in its correct place. This is most evident with the mating requirement, instead of having each unique object find another unique partner to mate with, I could just divide the number of creatures in the cell by two and then create that many offspring based on the probabilities of them reproducing. 
+  The reason I did it this way was that it was simpler to implement in the short run as I didn't have to worry about passing objects around, or keeping ordered lists of the creatures in each cell. Instead I could just destroy them and create a new one in its place. This is most evident with the mating requirement, instead of having each unique object find another unique partner to mate with, I could just divide the number of creatures in the cell by two and then create that many offspring based on the probabilities of them reproducing. 
 
   \section{C}
   C was developed in 1972 by Dennis Ritchie, and was used to create the Unix operating system. Since then it has continued to be used to this day for a variety of purposes, generally anywhere that software needs to interact directly with hardware, such as operating systems, hardware drivers and embedded devices. The Linux Kernel for example is written almost entirely in C.\cite{torvalds} The reason for this is that C allows a lot better access to low level memory than other languages. The programmer can directly manipulate the memory of the machine by using pointers to access variables memory locations; due to this it is seen as a more difficult language to learn and use as the programmer needs to manually manage their memory without any kind of garbage collection.
@@ -65,7 +65,7 @@
 
   Despite this it would still be possible to create the application in this way, however C++ offers the power of C with a large amount of extra features and supports full object orientation. This means that the choice between C and C++ is clear, C++ is more suitable for this project by far. Because of this there doesn't seem to be much need to compare C and Java, as C++ shares the majority of the pros and cons that Java does so it makes more sense to compare the two object orientated languages directly as they are naturally more suited to this task than C. 
 
-  If this project needed to be made to work on a large Unix system and support parallel processing for performance reasons, then it may make a lot more sense to write this in C as it could be made a lot more efficient, and utilising the resources and features that such a system may have to offer could be a lot easier. However this again would is probably true of C++.
+  If this project needed to be made to work on a large Unix system and support parallel processing for performance reasons, then it may make a lot more sense to write this in C as it could be made a lot more efficient, and utilising the resources and features that such a system may have to offer could be a lot easier. However this again is probably true of C++.
 
   \clearpage
   \section{C++}
@@ -114,7 +114,7 @@
 
   From a technical standpoint this is where Java comes ahead of C++ in terms of viability for this project. The additional power (and complexity) of C++ simply aren't needed for a simple project such as this. If the project was specifically for a single platform, that would nullify Java's advantage of cross platforms binaries; if the project was also centered around performance (Running many thousands of simulations as fast as possible) then it may make sense to do the project in C++ as there would be some speed gains from using native binaries instead of ones written for the Java Virtual Machine. Sadly though that isn't the case so Java wins out here. 
 
-  Once clear downside of Java is that the end users have to have Java installed on their machine. Although most machines do have this software installed not all do and this can provide an issue for inexperienced users. There is also a small moral issue of Java being owned by Oracle and being proprietary and not open source. However this is easily avoided by using the OpenJDK alternative which is open source and freely available.
+  One clear downside of Java is that the end users have to have Java installed on their machine. Although most machines do have this software installed not all do and this can provide an issue for inexperienced users. There is also a small moral issue of Java being owned by Oracle and being proprietary and not open source. However this is easily avoided by using the OpenJDK alternative which is open source and freely available.
 
   \begin{multicols}{2}
   \textbf{Pro's}
@@ -138,9 +138,11 @@
   \end{multicols}
 
   \section{Language choice for this project}
-  From the comparisons I have made, it appears that the most sensible choice of language for this application would be Java. This is mainly as C doesn't support true object orientation, and while C++ does support it, the application has no need for the more complex features of C++, nor is performance an issue. 
+  To summarise C is best harnessed in applications that require efficiency, either due to limited resources or for performance reasons. C++ has the benefits of C but with the overhead of having to manage objects, which slightly reduces performance, however it allows for object orientated programming which is a very strong plus when it comes to dealing with large systems. Java doesn't have the speed advantages, and access to low level memory that C/C++ does, however object orientation is at its core of the design philosophy so developing OO applications is very natural in Java. 
 
-  Using Java would also have the benefit of making the binary available to be ran on all platforms, this would save time porting the application to other platforms if that was required. 
+  The task in hand matches the use case of Java the closest, an object orientated approach is crucial, but performance and efficiency aren't required. This makes a C or C++ approach to the problem more complex than what is needed, as you have to deal with memory management and no garbage collections.
+
+  From the comparisons I have made, it appears that the most sensible choice of language for this application would be Java. This is mainly as C doesn't support true object orientation, and while C++ does support it, the application has no need for the more complex features of C++, nor is performance an issue. Using Java would also have the benefit of making the binary available to be ran on all platforms, this would save time porting the application to other platforms if that was required. 
 
   \bibliographystyle{unsrt}
   \begin{thebibliography}{1}
